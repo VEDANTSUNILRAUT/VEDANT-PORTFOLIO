@@ -157,8 +157,12 @@
     flex-direction: column;
   }
 }
+.smallbox{
+  height: 100%;
+}
 .smallbox2 {
   margin: 20px 50px 0px 82px;
+ 
 }
 
 @media (min-width: 576px) {

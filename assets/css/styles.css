@@ -524,6 +524,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 .footer__title {
   font-size: 2rem;
