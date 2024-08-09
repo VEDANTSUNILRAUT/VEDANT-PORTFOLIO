@@ -85,26 +85,48 @@ scrollToTopBtn.onclick = function () {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 };
-// for sending form 
+// for sending form
+// it is for loader for contact form
 function submitForm() {
-  const form = document.getElementById('contactForm');
-  const formData = new FormData(form);
+  // Show the loader
+  document.getElementById("loader").style.display = "block";
 
-  // Send the form data using fetch API
+  // Hide the success message (in case it was previously shown)
+  document.getElementById("successMessage").style.display = "none";
+
+  // Get the form element
+  var form = document.getElementById("contactForm");
+
+  // Create a new FormData object from the form
+  var formData = new FormData(form);
+
+  // Send the form data using Fetch API
   fetch(form.action, {
     method: form.method,
     body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      alert('Message sent successfully!'); // Display success message
-      window.location.reload(); // Refresh the page
-    } else {
-      alert('There was a problem sending your message. Please try again.');
-    }
-  }).catch(error => {
-    alert('There was a problem sending your message. Please try again.');
-  });
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Hide the loader
+      document.getElementById("loader").style.display = "none";
+
+      if (data.success) {
+        // Show the success message
+        document.getElementById("successMessage").style.display = "block";
+        form.reset(); // Reset the form
+
+        // Show alert message
+        alert("Message Sent Successfully!");
+
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    })
+    .catch((error) => {
+      // Hide the loader
+      document.getElementById("loader").style.display = "none";
+      alert("There was an error submitting the form. Please try again.");
+    });
 }

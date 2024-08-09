@@ -803,3 +803,19 @@ body {
     bottom: 100%;
   }
 }
+/* it is for loader for contact form */
+.loader {
+  position: relative;
+  width: 80px; /* Adjust size if needed */
+  height: 80px; /* Adjust size if needed */
+  margin: 20px auto;
+  text-align: center; /* Center the GIF */
+}
+
+.loader img {
+  position: fixed;
+  bottom: 230px;
+  right: 215px;
+  width: 5%;
+  height: 10%;
+}
