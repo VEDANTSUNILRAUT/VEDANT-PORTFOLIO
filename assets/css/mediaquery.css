@@ -16,6 +16,9 @@
   .smallbox{
     height: 100%;
   }
+  .footer {
+    text-align: justify;
+  }
 }
 
 /* Styles for screens from 576px and up */
@@ -47,6 +50,9 @@
   }
   .smallbox{
     height: 100%;
+  }
+  .footer {
+    text-align: justify;
   }
 }
 
@@ -122,6 +128,9 @@
   .smallbox{
     height: 100%;
   }
+  .footer {
+    text-align: justify;
+  }
 }
 
 /* Styles for screens from 992px and up */
@@ -145,6 +154,9 @@
   }
   .smallbox{
     height: 100%;
+  }
+  .footer {
+    text-align: justify;
   }
 }
 
@@ -176,6 +188,10 @@
   margin: 20px 50px 0px 82px;
  
 }
+.footer {
+  text-align: justify;
+}
+
 
 @media (min-width: 576px) {
   .bigbox {
@@ -188,8 +204,8 @@
     height: auto;
     margin: 10px;
   }
-  .smallbox{
-    height: 100%;
+  .footer {
+    text-align: justify;
   }
 }
 
@@ -202,8 +218,8 @@
   .smallbox {
     width: 40%;
   }
-  .smallbox{
-    height: 100%;
+  .footer {
+    text-align: justify;
   }
 }
 
@@ -215,7 +231,21 @@
   .smallbox {
     width: 30%;
   }
-  .smallbox{
-    height: 100%;
+  .footer {
+    text-align: justify;
   }
 }
+/* footer query */
+@media only screen and (max-width: 360px) and (max-height: 640px) {
+  .footer {
+    text-align: center;
+  }
+  .social-icons{
+      position: relative;
+      left:10px;
+  }
+  .cont1{
+display: block;
+  }
+}
+

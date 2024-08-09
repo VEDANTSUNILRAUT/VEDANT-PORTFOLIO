@@ -524,7 +524,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
+  text-align: justify;
 }
 .footer__title {
   font-size: 2rem;
@@ -599,8 +599,8 @@ img {
 
 .social-icons a {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #ddd;
   border-radius: 50%;
   display: flex;
@@ -611,7 +611,7 @@ img {
 }
 
 .social-icons a i {
-  font-size: 18px; /* Adjust the size of the icon if needed */
+  font-size: 25px; /* Adjust the size of the icon if needed */
   transition: transform 0.2s ease, color 0.2s ease;
 }
 .social-icons a i:hover {
