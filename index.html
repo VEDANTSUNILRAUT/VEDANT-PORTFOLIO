@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/mediaquery.css" />
 
     <!-- =====BOX ICONS===== -->
     <link
@@ -46,6 +47,9 @@
             </li>
             <li class="nav__item">
               <a href="#experience" class="nav__link">Experience</a>
+            </li>
+            <li class="nav__item">
+              <a href="#project" class="nav__link">Project</a>
             </li>
             <li class="nav__item">
               <a href="#contact" class="nav__link">Contact</a>
@@ -410,6 +414,37 @@
       <section class="contact section" id="experience">
         <h2 class="section-title">Experience</h2>
         <div class="container">
+
+          <div class="box1">
+            <div class="content">
+              <div class="header">
+                <img src="img/Experience/HashedBit Innovations.jpeg" alt="" class="boximg" />
+                <span>
+                  <p id="collagename">
+                    Full Stack Development Internship
+                  </p>
+                  <p id="branch">
+                    HashedBit Innovations Pvt Ltd<br />
+                    June 2024 - August 2024
+                  </p>
+                </span>
+              </div>
+              <br />
+              <div class="box-body">
+                <p class="box-skills">
+                  <b>Skills :</b> React, JavaScript, Node.js, Express.js, MySQL, MERN stack, Jira Board for Project Management.
+                </p>
+                <br />
+                <p>
+                  &nbsp; I successfully completed a 2-month internship in Full Stack Development at HashedBit Innovations. During my tenure, I worked on two live projects:
+                  <b>JSCMS</b> (JavaScript Content Management System), contributing to 7 tasks, and <b>LMS</b> (Learning Management System), where I completed 2 tasks. 
+                  I was involved in both frontend and backend development, including API integration.
+                  This experience has significantly enhanced my technical skills and prepared me for future challenges in software development.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           <div class="box1">
             <div class="content">
               <div class="header">
@@ -484,8 +519,58 @@
           </div>
         </div>
       </section>
-      <!--===== CONTACT =====-->
+      <!--===== Projects =====-->
+      <section class="contact section" id="project">
+        <h2 class="section-title">Project</h2>
+        <div class="bigbox">
+          <div class="smallbox1 smallbox">
+            <div class="content">
+              <div class="header">
+                <img src="img/project/barbell.png" alt="" class="boximg" />
+                <span>
+                  <p id="collagename">GYM MANAGEMENT WEBSITE</p>
+                  <p id="branch"></p>
+                </span>
+              </div>
+              <br />
+              <div class="body">
+                <p><b>Skills :</b> HTML, CSS, JavaScript, PHP, MySQL</p>
+                <br />
+                <p>
+                  This website is a powerful tool that helps fitness centers and
+                  gyms streamline their operations, enhance customer experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="smallbox2 smallbox">
+            <div class="content">
+              <div class="header">
+                <img src="img/project/ox.png" alt="" class="boximg" />
+                <span>
+                  <p id="collagename">CATTLE HUB MANAGEMENT WEBSITE</p>
+                  <p id="branch"></p>
+                </span>
+              </div>
+              <br />
+              <div class="body">
+                <p><b>Skills :</b> HTML, CSS, JavaScript, PHP, MySQL</p>
+                <br />
+                <p>
+                  Developed a cattle hub management system to streamline
+                  operations and enhance efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <button id="scrollToTopBtn" title="Go to top">
+      <div class="marquee">
+        <span>↑</span>
+      </div>
+    </button>
 
     <!--===== FOOTER =====-->
     <footer class="footer" id="contact">
@@ -538,24 +623,15 @@
       <div class="contact-form" style="text-align: center">
         <h2>Contact Me</h2>
         <div class="contact__container bd-grid">
-          <form action="" class="contact__form">
-            <input type="text" placeholder="Name" class="contact__input" />
-            <input type="mail" placeholder="Email" class="contact__input" />
-            <textarea
-              name=""
-              id=""
-              cols="0"
-              rows="10"
-              class="contact__input"
-              placeholder="Write Message Here ..."
-            ></textarea>
-            <input
-              type="button"
-              value="send"
-              class="button"
-              style="cursor: pointer"
-            />
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact__form">
+            <input type="hidden" name="access_key" value="50307242-94e0-480e-b101-0693d6638c2b">
+            <input type="text" name="name" placeholder="Name" class="contact__input" required />
+            <input type="email" name="email" placeholder="Email" class="contact__input" required />
+            <textarea name="message" cols="0" rows="10" class="contact__input" placeholder="Write Message Here ..." required></textarea>
+            <input type="button" value="Send" class="button" style="cursor: pointer" onclick="submitForm()" />
           </form>
+        </div>
+      </div>
         </div>
       </div>
     </footer>

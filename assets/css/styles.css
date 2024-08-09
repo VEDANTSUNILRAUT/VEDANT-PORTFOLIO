@@ -135,18 +135,7 @@ img {
   align-items: center;
   font-weight: var(--font-semi);
 }
-@media screen and (max-width: 767px) {
-  .nav__menu {
-    position: fixed;
-    top: var(--header-height);
-    right: -100%;
-    width: 80%;
-    height: 100%;
-    padding: 2rem;
-    background-color: var(--second-color);
-    transition: 0.5s;
-  }
-}
+
 .namelogo {
   height: var(--header-height);
   /* margin-top: 10px; */
@@ -662,211 +651,6 @@ img {
   font-size: 1rem;
 }
 
-/* ===== MEDIA QUERIES ===== */
-@media screen and (max-width: 576px) {
-  .footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  .footer {
-    flex-direction: row;
-    text-align: left;
-  }
-}
-/* ===== MEDIA QUERIES=====*/
-@media screen and (max-width: 320px) {
-  .home {
-    row-gap: 2rem;
-  }
-  .home__img {
-    width: 200px;
-  }
-  .box1,
-  .box2,
-  .box3 {
-    width: 98%;
-  }
-  .skills__container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 576px) {
-  .home {
-    padding: 4rem 0 2rem;
-  }
-  .home__social {
-    padding-top: 0;
-    padding-bottom: 2.5rem;
-    flex-direction: row;
-    align-self: flex-end;
-  }
-  .home__social-icon {
-    margin-bottom: 0;
-    margin-right: var(--mb-4);
-    color: #9a51de;
-    font-size: 2rem;
-    border: 2px solid #9a51de;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .home__img {
-    width: 300px;
-    bottom: 25%;
-  }
-  .about__text,
-  .about__subtitle {
-    color: white;
-  }
-  .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    text-align: initial;
-  }
-  .skills__container {
-    display: flex;
-    flex-direction: column;
-    /* grid-template-columns: 0.7fr; */
-    justify-content: center;
-    column-gap: 1rem;
-  }
-  .skill {
-    display: flex;
-    justify-content: center;
-  }
-  .work__container {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    padding-top: 2rem;
-  }
-  .contact__form {
-    width: 360px;
-    padding-top: 2rem;
-    border: 2px solid rgb(154, 81, 222);
-    box-shadow: 0 0 15px rgb(154, 81, 222);
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .contact__input {
-    cursor: pointer;
-    text-align: center;
-  }
-  .contact__container {
-    justify-items: center;
-  }
-  .box1,
-  .box2,
-  .box3 {
-    width: 98%;
-  }
-  .skills__container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 768px) {
-  body {
-    margin: 0;
-  }
-  .section {
-    padding-top: 4rem;
-    padding-bottom: 3rem;
-  }
-  .section-title {
-    margin-bottom: var(--mb-6);
-  }
-  .section-title::after {
-    width: 80px;
-    top: 3rem;
-  }
-  .nav {
-    height: calc(var(--header-height) + 1.5rem);
-  }
-  .nav__list {
-    display: flex;
-    padding-top: 0;
-  }
-  .nav__item {
-    margin-left: var(--mb-6);
-    margin-bottom: 0;
-  }
-  .nav__toggle {
-    display: none;
-  }
-  .nav__link {
-    color: white;
-  }
-  .home {
-    padding: 8rem 0 2rem;
-  }
-  .home__img {
-    width: 400px;
-    bottom: 10%;
-  }
-  .about__container {
-    padding-top: 2rem;
-  }
-  .about__img img {
-    width: 300px;
-  }
-  .skills__container {
-    /* grid-template-columns: repeat(2, 1fr); */
-    column-gap: 2rem;
-    align-items: center;
-    text-align: initial;
-  }
-  .work__container {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 2rem;
-  }
-  .box1,
-  .box2,
-  .box3 {
-    width: 98%;
-  }
-  .skills__container {
-    display: flex;
-    flex-direction: column;
-  }
-  .home__social-icon {
-    margin-bottom: 0;
-    margin-right: var(--mb-4);
-    color: #9a51de;
-    font-size: 2rem;
-    border: 2px solid #9a51de;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 992px) {
-  .bd-grid {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .home {
-    padding: 10rem 0 2rem;
-  }
-  .home__img {
-    width: 450px;
-  }
-  .box1,
-  .box2,
-  .box3 {
-    width: 50%;
-  }
-}
 .skills__container {
   display: flex;
   flex-direction: column;
@@ -883,4 +667,138 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+/* for the project section and the scroll up button */
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+}
+/*<---------------------------------------Body styling----------------------------------------------> */
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+/*<---------------------------------------Navbar styling----------------------------------------------> */
+
+.namelogo {
+  width: 200px;
+  height: 50px;
+  margin-top: 10px;
+}
+.btn {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #9a51de;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  font-weight: 650;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+}
+.btn:hover {
+  transform: scale(1.1); /* Button grows when hovered */
+}
+
+.boximg {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 18px;
+}
+
+.fifthSection {
+  height: 100%;
+  margin-bottom: 100px;
+}
+.fifthSection h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+.bigbox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.smallbox {
+  background-color: #121212;
+  width: 300px;
+  height: 260px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: -1px 0px 20px 6px rgb(154, 81, 222);
+  margin: 20px;
+}
+.smallbox1 {
+  margin: 20px 50px 0px 80px;
+}
+.smallbox2 {
+  margin: 20px 50px 0px 100px;
+}
+/* for the button of scrolling to top */
+#scrollToTopBtn {
+  height: 50px;
+  width: 50px;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* Place the button 20px from the bottom */
+  right: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #9a51de; /* Set background color */
+  box-shadow: -1px 0px 20px 6px rgb(154, 81, 222);
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #333; /* Add a dark-grey background on hover */
+}
+
+/* for scrolling button */
+.marquee {
+  overflow: hidden;
+  position: relative;
+  height: 24px; /* height of the button text */
+  width: 18px; /* width of the button text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: black;
+}
+.marquee span {
+  display: block;
+  position: absolute;
+  bottom: -100%; /* Initially place the text below the button */
+  animation: marquee 1.5s linear infinite; /* Increase speed by decreasing the duration */
+}
+@keyframes marquee {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 100%;
+  }
 }

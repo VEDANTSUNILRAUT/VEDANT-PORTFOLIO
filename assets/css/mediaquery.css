@@ -1,0 +1,193 @@
+/* Common styles for smaller screens */
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--second-color);
+    transition: 0.5s;
+  }
+  .home__img {
+    width: 150px; /* Smaller size for mobile */
+  }
+}
+
+/* Styles for screens from 576px and up */
+@media screen and (min-width: 576px) {
+  .footer {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .home__social {
+    padding-top: 0;
+    padding-bottom: 2.5rem;
+    flex-direction: row;
+    align-self: flex-end;
+  }
+
+  .home__social-icon {
+    margin-bottom: 0;
+    margin-right: var(--mb-4);
+    color: #9a51de;
+    font-size: 2rem;
+    border: 2px solid #9a51de;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Styles for screens from 768px and up */
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-title {
+    margin-bottom: var(--mb-6);
+  }
+
+  .section-title::after {
+    width: 80px;
+    top: 3rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav__list {
+    display: flex;
+    padding-top: 0;
+  }
+
+  .nav__item {
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__link {
+    color: white;
+  }
+
+  .home {
+    padding: 8rem 0 2rem;
+  }
+
+  .about__container {
+    padding-top: 2rem;
+  }
+
+  .skills__container {
+    column-gap: 2rem;
+    align-items: center;
+    text-align: initial;
+  }
+
+  .work__container {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 98%;
+  }
+  .home__img {
+    width: 260px; /* Medium size for tablets */
+  }
+}
+
+/* Styles for screens from 992px and up */
+@media screen and (min-width: 992px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home {
+    padding: 10rem 0 2rem;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 50%;
+  }
+  .home__img {
+    width: 360px; /* Larger size for laptops and desktops */
+  }
+}
+
+/* Additional specific styles */
+@media (max-width: 320px) {
+  .home {
+    row-gap: 2rem;
+  }
+
+  .home__img {
+    width: 200px;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    width: 98%;
+  }
+
+  .skills__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 576px) {
+  .bigbox {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .smallbox {
+    width: 45%;
+    height: auto;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bigbox {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .smallbox {
+    width: 40%;
+  }
+}
+
+@media (min-width: 992px) {
+  .bigbox {
+    justify-content: center;
+  }
+
+  .smallbox {
+    width: 30%;
+  }
+}

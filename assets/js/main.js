@@ -64,3 +64,47 @@ var typed = new Typed("#element", {
   typeSpeed: 50,
   loop: true,
 });
+// Get the button
+var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+scrollToTopBtn.onclick = function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+};
+// for sending form 
+function submitForm() {
+  const form = document.getElementById('contactForm');
+  const formData = new FormData(form);
+
+  // Send the form data using fetch API
+  fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      alert('Message sent successfully!'); // Display success message
+      window.location.reload(); // Refresh the page
+    } else {
+      alert('There was a problem sending your message. Please try again.');
+    }
+  }).catch(error => {
+    alert('There was a problem sending your message. Please try again.');
+  });
+}
