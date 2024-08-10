@@ -185,10 +185,58 @@ img {
 .nav__logo {
   color: var(--second-color);
 }
+/* Basic styling for the toggle button */
 .nav__toggle {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  z-index: 999; /* Ensure it sits on top */
+}
+
+/* Hidden menu (default state) */
+.nav__menu {
+  position: fixed;
+  top: var(--header-height);
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background-color: var(--second-color);
+  padding: 2rem;
+  transition: 0.5s ease-in-out;
+}
+
+/* Menu displayed (when 'show' class is added) */
+.nav__menu.show {
+  right: 0;
+}
+
+/* Reset for larger screens */
+@media screen and (min-width: 768px) {
+  .nav__toggle {
+    display: none; /* Hide toggle on larger screens */
+  }
+
+  .nav__menu {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    transition: none;
+    display: flex;
+    flex-direction: row; /* Inline display for larger screens */
+  }
+
+  .nav__menu.show {
+    right: auto; /* Reset for larger screens */
+  }
+}
+
+/* Menu link styling */
+.nav__link {
+  display: block;
+  color: white;
+  margin: 1rem 0;
 }
 
 /*Active menu*/
