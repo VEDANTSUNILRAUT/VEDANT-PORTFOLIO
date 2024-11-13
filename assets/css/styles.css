@@ -796,6 +796,19 @@ body {
 .smallbox2 {
   margin: 20px 50px 0px 100px;
 }
+.view {
+  color: white;
+  background-color: #c597f0;
+  border: 2px solid black;
+  font-size: 12px;
+  padding: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.view:hover {
+  background-color: #9a51de;
+}
+
 /* for the button of scrolling to top */
 #scrollToTopBtn {
   height: 50px;

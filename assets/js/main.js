@@ -60,7 +60,7 @@ sr.reveal(".home__img, .about__subtitle, .about__text, .skills__img", {
 sr.reveal(".home__social-icon", { interval: 200 });
 sr.reveal(".skills__data, .work__img, .contact__input", { interval: 200 });
 var typed = new Typed("#element", {
-  strings: ["Web Developer", "UI/UX Designer"],
+  strings: ["Web Developer", "Software Developer"],
   typeSpeed: 50,
   loop: true,
 });
