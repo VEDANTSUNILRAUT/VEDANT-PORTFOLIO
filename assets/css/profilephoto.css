@@ -1,0 +1,213 @@
+.hero-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-animation {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.spinner-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(186, 66, 255, 0.8) 0%,
+    rgba(0, 225, 255, 0.8) 50%,
+    rgba(186, 66, 255, 0.8) 100%
+  );
+  animation: spinning 3s linear infinite;
+  filter: blur(12px) opacity(0.8);
+  box-shadow: 0px -10px 30px 0px rgba(186, 66, 255, 0.7),
+    0px 10px 30px 0px rgba(0, 225, 255, 0.7),
+    0 0 60px rgba(186, 66, 255, 0.5) inset;
+  z-index: 1;
+}
+
+.spinner1 {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #479d44, #cd19d6);
+  z-index: 2;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(92, 70, 156, 0.5) inset;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profile-image {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(
+    45deg,
+    rgba(15, 12, 41, 0.6),
+    rgba(48, 43, 99, 0.6)
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  overflow: hidden;
+  border: 3px solid rgba(92, 70, 156, 0.3);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(110%);
+}
+
+/* Hover effects for profile animation */
+.spinner-container:hover .spinner {
+  animation: spinning 1.2s linear infinite;
+  filter: blur(15px) opacity(0.9);
+  box-shadow: 0px -15px 40px 0px rgba(186, 66, 255, 0.9),
+    0px 15px 40px 0px rgba(0, 225, 255, 0.9),
+    0 0 80px rgba(186, 66, 255, 0.7) inset;
+}
+
+.spinner-container:hover .spinner1 {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px rgba(0, 225, 255, 0.5),
+    0 0 30px rgba(92, 70, 156, 0.7) inset;
+}
+
+/* Floating icons */
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.icon {
+  position: absolute;
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(25, 22, 50, 0.7);
+  box-shadow: 0 0 15px rgba(0, 225, 255, 0.5);
+  animation: float 6s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2) rotate(15deg);
+  box-shadow: 0 0 25px rgba(0, 225, 255, 0.8);
+  z-index: 10;
+}
+
+.icon:nth-child(1) {
+  top: 5%;
+  left: 10%;
+  color: #61dafb;
+  /* React Blue */
+  animation-delay: 0s;
+}
+
+.icon:nth-child(2) {
+  top: 15%;
+  right: 10%;
+  color: #f89820;
+  /* Java Orange */
+  animation-delay: 1s;
+}
+
+.icon:nth-child(3) {
+  bottom: 15%;
+  left: 15%;
+  color: #3fa0f0;
+  /* VS Code Blue */
+  animation-delay: 2s;
+}
+
+.icon:nth-child(4) {
+  bottom: 5%;
+  right: 15%;
+  color: #f29111;
+  /* SQL Orange */
+  animation-delay: 3s;
+}
+
+/* Animations */
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(5px, -15px) rotate(5deg);
+  }
+
+  50% {
+    transform: translate(10px, 5px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translate(-5px, 10px) rotate(5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Glow effect for icons */
+.fa-react {
+  text-shadow: 0 0 15px rgba(97, 218, 251, 0.8);
+}
+
+.fa-java {
+  text-shadow: 0 0 15px rgba(248, 152, 32, 0.8);
+}
+
+.fa-laptop-code {
+  text-shadow: 0 0 15px rgba(63, 160, 240, 0.8);
+}
+
+.fa-database {
+  text-shadow: 0 0 15px rgba(242, 145, 17, 0.8);
+}
