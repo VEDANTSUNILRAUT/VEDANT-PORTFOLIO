@@ -3,7 +3,7 @@
   --bg-darker: #0a0a0a;
   --primary: #9d4edd;
   --primary-dark: #7c3cbb;
-  --secondary: #66fcf1;
+  --secondary: rgb(108, 54, 170);
   --accent: #ff6b6b;
   --text-light: #e0e0e0;
   --text-lighter: #f5f5f5;
@@ -79,7 +79,7 @@ section {
 .about-text h3 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--secondary);
+  color: rgb(108, 54, 170);
 }
 
 .about-text p {
