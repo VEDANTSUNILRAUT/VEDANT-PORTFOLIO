@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-darker: #0a0a0a;
+            --primary: #9d4edd;
+            --primary-dark: #7c3cbb;
+            --secondary: #66fcf1;
+            --accent: #ff6b6b;
+            --text-light: #e0e0e0;
+            --text-lighter: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Home button (top-right) */
+        .top-home-btn {
+            /* position: absolute;
+            top: 20px;
+            right: 20px; */
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .top-home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.7);
+        }
+
+        .notfound-container {
+            max-width: 800px;
+            padding: 3rem;
+            background: rgba(26, 26, 46, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notfound-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-lighter);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .typed-text {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typed-text::after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 1s infinite;
+            color: var(--secondary);
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animation-container {
+            margin: 3rem auto;
+            max-width: 300px;
+        }
+
+        .animation {
+            position: relative;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: move 3s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .box:nth-child(1) {
+            animation-delay: 0s;
+            background: var(--primary);
+        }
+
+        .box:nth-child(2) {
+            animation-delay: 0.5s;
+            background: var(--accent);
+        }
+
+        .box:nth-child(3) {
+            animation-delay: 1s;
+            background: var(--secondary);
+        }
+
+        @keyframes move {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(80px, 0);
+            }
+
+            50% {
+                transform: translate(80px, 80px);
+            }
+
+            75% {
+                transform: translate(0, 80px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .top-home-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 6px solid rgba(255, 255, 255, 0.1);
+            border-top: 6px solid var(--secondary);
+            border-right: 6px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1.2s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top right Home button -->
+
+
+    <div class="notfound-container">
+        <!-- Redirect Message -->
+        <p id="redirect-msg">
+            Taking you back in <span id="countdown">5</span> seconds...
+        </p>
+
+        <!-- Title -->
+        <h2>Page Not Found</h2>
+
+        <!-- Description -->
+        <p>Oops! It seems the live demo for this project isn't available yet.</p>
+
+        <!-- Animated Image -->
+        <div>
+            <img src="../assets/img/working.gif" alt="Working animation" style="width: 200px; height: 200px;">
+        </div>
+
+        <!-- Status Text -->
+        <p class="typed-text">
+            I'm currently working on it and will have it ready soon...
+        </p>
+
+        <!-- Return Button -->
+        <div>
+            <a href="javascript:void(0)" class="top-home-btn" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i> Return
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let countdown = 10; // seconds
+        const countdownEl = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownEl.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(timer);
+                if (document.referrer) {
+                    window.history.back();
+                } else {
+                    window.location.href = "index.html"; // fallback if no referrer
+                }
+            }
+        }, 1000); // 1 second per step
+    </script>
+
+
+
+</body>
+
+</html>

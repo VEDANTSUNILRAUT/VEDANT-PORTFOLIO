@@ -12,6 +12,84 @@
   margin-top: 40px;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .internship-section {
+    padding: 100px 7%;
+  }
+}
+
+@media (max-width: 992px) {
+  .internship-section {
+    padding: 90px 5%;
+  }
+
+  .internship-container {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .internship-container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .internship-card {
+    padding: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .internship-section {
+    padding: 80px 5%;
+  }
+
+  .internship-card {
+    padding: 25px 20px;
+  }
+
+  .internship-role {
+    font-size: 1.4rem;
+  }
+
+  .internship-company {
+    font-size: 1.1rem;
+  }
+
+  .internship-description,
+  .project-highlight li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tech-stack {
+    gap: 8px;
+  }
+
+  .tech-item {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .internship-role {
+    font-size: 1.3rem;
+  }
+
+  .internship-duration {
+    font-size: 0.85rem;
+  }
+
+  .project-highlight h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Card styles */
 .internship-card {
   background: rgba(26, 26, 46, 0.6);
   backdrop-filter: blur(10px);
@@ -96,44 +174,6 @@
   border-radius: 20px;
   font-size: 0.85rem;
 }
-/* Responsive */
-@media (max-width: 992px) {
-  .section-title {
-    font-size: 2.4rem;
-  }
-
-  .nav-links {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .navbar {
-    padding: 1.2rem 5%;
-  }
-}
-
-@media (max-width: 576px) {
-  section {
-    padding: 80px 5%;
-  }
-
-  .cta-title {
-    font-size: 2.2rem;
-  }
-}
 
 /* Animation */
 @keyframes fadeIn {
@@ -141,7 +181,6 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);

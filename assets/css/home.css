@@ -870,3 +870,31 @@ canvas {
     display: none;
   }
 }
+/* load more button of projects */
+.view-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.view-more-btn {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.8rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.view-more-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.4);
+}

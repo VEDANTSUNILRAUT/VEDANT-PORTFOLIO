@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Skills Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0a0a12;
+            --card-bg: #141427;
+            --accent: #7f38c0;
+            --accent-hover: #692fa4;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --border-radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+            --glow: 0 0 18px rgba(127, 56, 192, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-image: radial-gradient(circle at 25% 25%, rgba(127, 56, 192, 0.1) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(127, 56, 192, 0.1) 0%, transparent 55%);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem;
+            background: rgba(20, 20, 39, 0.85);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(127, 56, 192, 0.2);
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent), #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .divider {
+            height: 3px;
+            width: min(100%, 100px);
+            background: linear-gradient(to right,
+                    transparent,
+                    var(--accent),
+                    transparent);
+            margin: 1.5rem auto;
+        }
+
+        .category-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .category-btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+        }
+
+        .category-btn:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .category-btn.active {
+            background: var(--accent);
+            color: var(--dark-bg);
+            box-shadow: var(--glow);
+        }
+
+        .skills-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            background: var(--card-bg);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            min-height: 400px;
+            width: 100%;
+        }
+
+        .skills-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .skill-category {
+            min-width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+            width: 100%;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .category-title {
+            font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-grow: 1;
+            align-content: flex-start;
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+
+        .skill-item {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+            padding: 1.2rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            width: 130px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+
+        .skill-item:hover {
+            background: rgba(56, 189, 248, 0.15);
+            transform: scale(1.05) translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: var(--glow);
+        }
+
+        .skill-icon {
+            font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .skill-name {
+            font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slider-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.8rem;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .indicator-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .indicator-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: var(--text-secondary);
+            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            width: 100%;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header,
+        .category-selector,
+        .slider-indicator {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .skill-item {
+                width: 120px;
+                height: 110px;
+            }
+
+            .skill-category {
+                padding: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .category-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .category-header {
+                margin-bottom: 1.2rem;
+            }
+
+            .skill-item {
+                width: 110px;
+                height: 100px;
+                padding: 1rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .category-selector {
+                gap: 0.6rem;
+                margin: 2rem 0;
+            }
+
+            .category-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                gap: 0.5rem;
+            }
+
+            .category-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                margin-right: 0.8rem;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+            }
+
+            .skill-item {
+                width: 100px;
+                height: 90px;
+            }
+
+            .skill-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .skill-name {
+                font-size: 0.85rem;
+            }
+
+            .slider-indicator {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .skill-item {
+                width: 90px;
+                height: 85px;
+                padding: 0.8rem 0.3rem;
+            }
+
+            .divider {
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .skill-item {
+                width: 80px;
+                height: 80px;
+            }
+
+            .category-btn {
+                padding: 0.5rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Skills Showcase</h1>
+            <p>Explore my technical expertise across various domains. Click on categories to filter skills.</p>
+            <div class="divider"></div>
+        </header>
+
+        <div class="category-selector">
+            <button class="category-btn active">
+                <i class="fas fa-code"></i> Frontend
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-server"></i> Backend
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-database"></i> Database
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-tools"></i> Tools
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-cloud"></i> DevOps
+            </button>
+        </div>
+
+        <div class="skills-container">
+            <div class="skills-slider">
+                <!-- Frontend Skills -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h2 class="category-title">Frontend Development</h2>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-name">HTML5</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="skill-name">CSS3</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="skill-name">React</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <div class="skill-name">Vue.js</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-sass"></i>
+                            </div>
+                            <div class="skill-name">SASS</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <div class="skill-name">Bootstrap</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h2 class="category-title">Backend Development</h2>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <div class="skill-name">Node.js</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-name">Python</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <div class="skill-name">PHP</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="skill-name">Firebase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-indicator">
+            <div class="indicator-dot active"></div>
+            <div class="indicator-dot"></div>
+            <div class="indicator-dot"></div>
+            <div class="indicator-dot"></div>
+            <div class="indicator-dot"></div>
+        </div>
+
+        <footer>
+            <p>© 2023 Skills Showcase | Designed with passion</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const slider = document.querySelector('.skills-slider');
+            const dots = document.querySelectorAll('.indicator-dot');
+
+            // Category selector functionality
+            categoryButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Update active dot
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+
+                    // Move slider
+                    slider.style.transform = `translateX(-${index * 100}%)`;
+                });
+            });
+
+            // Dot navigation functionality
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Update active dot
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    categoryButtons[index].classList.add('active');
+
+                    // Move slider
+                    slider.style.transform = `translateX(-${index * 100}%)`;
+                });
+            });
+
+            // Auto-rotate categories every 8 seconds
+            let currentIndex = 0;
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % categoryButtons.length;
+
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                categoryButtons[currentIndex].classList.add('active');
+
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+
+                // Move slider
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 8000);
+        });
+    </script>
+</body>
+
+</html>

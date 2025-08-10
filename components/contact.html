@@ -12,9 +12,6 @@
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
     <style>
         :root {
             --bg-dark: #0f0f0f;
@@ -35,40 +32,92 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Inter", "Segoe UI", sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         body {
-            background: var(--bg-dark);
+            background: linear-gradient(135deg, var(--bg-darker), var(--bg-dark));
             color: var(--text-light);
-            overflow-x: hidden;
             min-height: 100vh;
+            overflow-x: hidden;
             position: relative;
             line-height: 1.6;
         }
 
-        /* Particles Background */
-        #particles-js {
+        /* Animated background elements */
+        .bg-blob {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.1;
             z-index: -1;
-            pointer-events: none;
-            filter: brightness(1.8) contrast(1.2);
         }
 
-        /* Navigation */
+        .blob-1 {
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            background: var(--secondary);
+            bottom: -150px;
+            right: -100px;
+        }
+
+        .blob-3 {
+            background: var(--accent);
+            top: 50%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Header styles */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-lighter);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo i {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             padding: 1.5rem 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
+            z-index: 1000;
             transition: var(--transition);
         }
 
@@ -79,7 +128,7 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .logo {
+        .logo-link {
             font-size: 1.8rem;
             font-weight: 700;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -139,167 +188,270 @@
             width: 100%;
         }
 
-        /* Contact Section */
-        .contact-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 10% 50px;
-            position: relative;
-            overflow: hidden;
+        .nav-links a.active {
+            color: var(--primary);
         }
 
+        /* Page title */
+        .page-title {
+            text-align: center;
+            margin: 8rem 0 3rem;
+            padding: 0 20px;
+        }
+
+        .page-title h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .page-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Contact container */
         .contact-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 3rem;
         }
 
-        .contact-info {
-            padding: 40px;
-            background: rgba(26, 26, 46, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(157, 78, 221, 0.2);
+        /* Contact form */
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-
-        .contact-info p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .contact-details {
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(157, 78, 221, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-
-        .contact-text {
-            flex: 1;
-        }
-
-        .contact-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--text-lighter);
-        }
-
-        .contact-text p,
-        .contact-text a {
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-text a:hover {
-            color: var(--secondary);
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            padding: 40px;
-            background: rgba(26, 26, 46, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(157, 78, 221, 0.2);
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            z-index: -1;
         }
 
         .form-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-
-        .form-description {
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            color: var(--text-lighter);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .form-label {
+        .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
             font-weight: 500;
-            color: var(--text-lighter);
         }
 
-        .form-input,
-        .form-textarea {
+        .form-control {
             width: 100%;
-            padding: 14px 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(102, 252, 241, 0.1);
-            background: rgba(15, 15, 15, 0.4);
-            color: var(--text-light);
+            padding: 0.9rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-lighter);
             font-size: 1rem;
             transition: var(--transition);
         }
 
-        .form-input:focus,
-        .form-textarea:focus {
+        .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.3);
+            background: rgba(157, 78, 221, 0.05);
+            box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.2);
         }
 
-        .form-textarea {
+        textarea.form-control {
             min-height: 150px;
             resize: vertical;
         }
 
         .submit-btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3);
             border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.4);
         }
 
+        /* Contact info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(157, 78, 221, 0.15);
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .info-title {
+            font-size: 1.5rem;
+            color: var(--text-lighter);
+        }
+
+        .info-content {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .info-list i {
+            color: var(--primary);
+            margin-top: 0.3rem;
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Map */
+        .map-container {
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-lighter);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* Form messages */
         .form-message {
             padding: 15px;
             border-radius: 10px;
@@ -320,128 +472,15 @@
             color: #dc3545;
         }
 
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .social-link:hover {
-            transform: translateY(-5px);
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--bg-darker);
-            padding: 80px 10% 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--secondary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-column h3::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .footer-about p {
-            color: var(--text-gray);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .footer-contact p {
-            color: var(--text-gray);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
+        /* Responsive design */
+        @media (max-width: 900px) {
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .contact-info,
-            .contact-form-container {
-                padding: 30px;
+            .contact-form {
+                padding: 2rem;
             }
         }
 
@@ -450,327 +489,245 @@
                 padding: 1.2rem 5%;
             }
 
-            .contact-section {
-                padding: 100px 5% 50px;
+            .page-title h1 {
+                font-size: 2.8rem;
             }
 
-            .form-title {
-                font-size: 1.8rem;
-            }
-
-            .contact-info h2 {
-                font-size: 2rem;
+            .nav-links {
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 576px) {
-
-            .contact-info,
-            .contact-form-container {
-                padding: 25px;
+            .page-title h1 {
+                font-size: 2.3rem;
             }
 
-            .contact-info h2,
-            .form-title {
-                font-size: 1.6rem;
+            .contact-form {
+                padding: 1.5rem;
             }
 
-            .contact-item {
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .info-header {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
             }
 
-            .contact-icon {
-                margin-bottom: 10px;
+            .info-icon {
+                margin: 0 auto;
             }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+            transition: var(--transition);
+        }
+
+        .home-btn i {
+            font-size: 1.2rem;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.6);
+        }
+
+        .home-btn:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 
 <body>
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+    <!-- Background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#" class="logo">
-            <div class="logo-icon">VR</div>
-            <!-- VEDANT RAUT -->
-        </a>
-        <div class="nav-links">
-            <a href="index.html#about">About</a>
-            <a href="index.html#skills">Skills</a>
-            <a href="index.html#education">Education</a>
-            <a href="index.html#internships">Experience</a>
-            <a href="index.html#projects">Projects</a>
-            <a href="contact.html" class="active">Contact</a>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-code"></i>
+            <div>VED's <span>Portfolio</span></div>
         </div>
-    </nav>
+        <nav class="nav-links">
+            <a href="../index.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
+
+        </nav>
+    </header>
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>Contact Me</h1>
+        <p>Have a project in mind? Want to collaborate? Or just want to say hello? Feel free to reach out to me using
+            the contact form or through any of the contact details below.</p>
+    </div>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                <p>Have a project in mind? Want to collaborate? Or just want to say hello? Feel free to reach out to me
-                    using the contact form or through any of the contact details below.</p>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2 class="form-title">Send Me a Message</h2>
+            <p class="info-content">I'll get back to you as soon as possible. All messages are directly sent to my
+                email.</p>
 
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
+            <form id="contact-form" action="https://formspree.io/f/xyzjbypg" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="What's this about?"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Type your message here..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+
+                <div id="success-message" class="form-message success-message">
+                    <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+                </div>
+
+                <div id="error-message" class="form-message error-message">
+                    <i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try again.
+                </div>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <div class="info-card">
+                <div class="info-header">
+                    <div class="info-icon">
+                        <i class="fas fa-address-card"></i>
+                    </div>
+                    <h3 class="info-title">Contact Information</h3>
+                </div>
+                <ul class="info-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
                             <h4>Location</h4>
                             <p>Amravati, Maharashtra, India</p>
                         </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
                             <h4>Email</h4>
-                            <a href="mailto:vedant.raut@example.com">vedant.raut@example.com</a>
+                            <p>vedant.raut@example.com</p>
                         </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <div>
                             <h4>Phone</h4>
-                            <a href="tel:+911234567890">+91 1234567890</a>
+                            <p>+91 1234567890</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <div class="contact-form-container">
-                <h2 class="form-title">Send Me a Message</h2>
-                <p class="form-description">I'll get back to you as soon as possible. All messages are directly sent to
-                    my email.</p>
-
-                <form id="contact-form" action="https://formspree.io/f/xyzjbypg" method="POST">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name"
-                            required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email"
-                            required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-input"
-                            placeholder="What's this about?" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" class="form-label">Your Message</label>
-                        <textarea id="message" name="message" class="form-textarea"
-                            placeholder="Type your message here..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Message</button>
-
-                    <div id="success-message" class="form-message success-message">
-                        <i class="fas fa-check-circle"></i> Your message has been sent successfully!
-                    </div>
-
-                    <div id="error-message" class="form-message error-message">
-                        <i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try
-                        again.
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column footer-about">
-                <h3>About Me</h3>
-                <p>
-                    Full-Stack Developer with a passion for creating efficient,
-                    scalable applications with modern technologies. I bridge the gap
-                    between design and functionality.
-                </p>
-                <div class="footer-social">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> About</a></li>
-                    <li><a href="index.html#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
-                    <li><a href="index.html#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                    <li><a href="index.html#internships"><i class="fas fa-chevron-right"></i> Experience</a></li>
-                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </li>
                 </ul>
             </div>
 
-            <div class="footer-column footer-contact">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Amravati, Maharashtra, India</p>
-                <p><i class="fas fa-envelope"></i> vedant.raut@example.com</p>
-                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+            <div class="info-card">
+                <div class="info-header">
+                    <div class="info-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="info-title">Social Media</h3>
+                </div>
+                <p class="info-content">Connect with me on these platforms:</p>
+                <div class="social-links">
+                    <a href="https://github.com/VEDANTSUNILRAUT" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vedantsunilraut" class="social-link"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/vedantsunilraut" class="social-link"><i
+                            class="fab fa-instagram"></i></a>
+
+                </div>
             </div>
         </div>
 
-        <div class="copyright">
-            <p>&copy; 2025 Vedant Raut. All Rights Reserved.</p>
-        </div>
-    </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Navbar scroll effect
+                const navbar = document.querySelector(".navbar");
+                window.addEventListener("scroll", () => {
+                    navbar?.classList.toggle("scrolled", window.scrollY > 50);
+                });
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // ParticleJS config
-            particlesJS("particles-js", {
-                particles: {
-                    number: {
-                        value: 120,
-                        density: {
-                            enable: true,
-                            value_area: 800,
-                        },
-                    },
-                    color: {
-                        value: ["#ffffff", "#66fcf1", "#00f2ff", "#9d4edd"],
-                    },
-                    shape: {
-                        type: "circle",
-                    },
-                    opacity: {
-                        value: 0.5,
-                        random: true,
-                        anim: {
-                            enable: true,
-                            speed: 0.5,
-                            opacity_min: 0.2,
-                            sync: false,
-                        },
-                    },
-                    size: {
-                        value: 3,
-                        random: true,
-                        anim: {
-                            enable: true,
-                            speed: 1,
-                            size_min: 0.3,
-                            sync: false,
-                        },
-                    },
-                    line_linked: {
-                        enable: true,
-                        distance: 130,
-                        color: "#66fcf1",
-                        opacity: 0.2,
-                        width: 1.2,
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: true,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false,
-                    },
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: {
-                            enable: true,
-                            mode: "grab",
-                        },
-                        onclick: {
-                            enable: true,
-                            mode: "push",
-                        },
-                        resize: true,
-                    },
-                    modes: {
-                        grab: {
-                            distance: 150,
-                            line_linked: {
-                                opacity: 1,
-                            },
-                        },
-                        push: {
-                            particles_nb: 4,
-                        },
-                    },
-                },
-                retina_detect: true,
-            });
+                // Form submission handling
+                const contactForm = document.getElementById('contact-form');
+                const successMessage = document.getElementById('success-message');
+                const errorMessage = document.getElementById('error-message');
 
-            // Navbar scroll effect
-            const navbar = document.querySelector(".navbar");
-            window.addEventListener("scroll", () => {
-                navbar?.classList.toggle("scrolled", window.scrollY > 50);
-            });
+                if (contactForm) {
+                    contactForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
 
-            // Form submission handling
-            const contactForm = document.getElementById('contact-form');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
+                        // Hide previous messages
+                        successMessage.style.display = 'none';
+                        errorMessage.style.display = 'none';
 
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
+                        try {
+                            const formData = new FormData(contactForm);
+                            const response = await fetch(contactForm.action, {
+                                method: 'POST',
+                                body: formData,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
 
-                    // Hide previous messages
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-
-                    try {
-                        const formData = new FormData(contactForm);
-                        const response = await fetch(contactForm.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
+                            if (response.ok) {
+                                // Show success message
+                                successMessage.style.display = 'block';
+                                contactForm.reset();
+                            } else {
+                                // Show error message
+                                errorMessage.style.display = 'block';
                             }
-                        });
-
-                        if (response.ok) {
-                            // Show success message
-                            successMessage.style.display = 'block';
-                            contactForm.reset();
-                        } else {
+                        } catch (error) {
                             // Show error message
                             errorMessage.style.display = 'block';
+                            console.error('Error submitting form:', error);
                         }
-                    } catch (error) {
-                        // Show error message
-                        errorMessage.style.display = 'block';
-                        console.error('Error submitting form:', error);
-                    }
-                });
-            }
-        });
-    </script>
+                    });
+                }
+            });
+        </script>
 </body>
 
 </html>
