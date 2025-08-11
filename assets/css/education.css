@@ -173,7 +173,7 @@
   animation: float 1.2s ease-in-out infinite;
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
 @media (max-width: 992px) {
   .timeline::after {
     left: 31px;
@@ -195,6 +195,23 @@
   .section-title {
     font-size: 2.4rem;
   }
+
+  /* Font size adjustments for tablets */
+  .education-title {
+    font-size: 1.4rem;
+  }
+
+  .education-institution {
+    font-size: 1.1rem;
+  }
+
+  .education-grade {
+    font-size: 1.4rem;
+  }
+
+  .education-description {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -206,12 +223,60 @@
     font-size: 1rem;
   }
 
+  .timeline::after {
+    left: 25px; /* Adjusted position */
+  }
+
+  .timeline-item {
+    padding-left: 60px; /* Reduced padding */
+    padding-right: 20px;
+    padding-bottom: 30px; /* Added bottom padding for spacing */
+  }
+
+  .timeline-content {
+    padding: 20px; /* Reduced padding */
+  }
+
+  .timeline-item:nth-child(even) .timeline-icon,
+  .timeline-item:nth-child(odd) .timeline-icon {
+    left: 10px; /* Adjusted position */
+    width: 40px; /* Smaller icon */
+    height: 40px;
+    font-size: 1.3rem; /* Smaller icon size */
+  }
+
+  /* Font size adjustments */
   .education-title {
     font-size: 1.3rem;
+    margin-bottom: 3px;
   }
 
   .education-institution {
     font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .education-grade {
+    font-size: 1.3rem;
+    margin: 12px 0;
+  }
+
+  .education-description {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .achievement {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .education-duration {
+    font-size: 0.85rem;
+    height: 1.8rem;
+    padding: 4px 12px;
+    width: auto; /* Better fit for content */
   }
 }
 
@@ -220,42 +285,105 @@
     padding: 80px 5%;
   }
 
-  .timeline-content {
-    padding: 20px;
-  }
-
-  .education-header {
-    flex-direction: column;
-  }
-
-  .education-duration {
-    margin-top: 10px;
-    align-self: flex-start;
-  }
-}
-@media (max-width: 768px) {
   .timeline::after {
-    left: 31px;
+    left: 20px; /* Further adjusted position */
+    width: 4px; /* Thinner line */
   }
 
   .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+    padding-left: 45px; /* Reduced padding */
+    padding-right: 15px;
+    padding-bottom: 25px;
+  }
+
+  .timeline-content {
+    padding: 18px;
+    border-radius: 16px; /* Slightly smaller radius */
   }
 
   .timeline-item:nth-child(even) .timeline-icon,
   .timeline-item:nth-child(odd) .timeline-icon {
-    left: 15px;
-    right: auto;
+    left: 8px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+    top: 22px;
   }
 
   .education-header {
     flex-direction: column;
+    gap: 8px;
   }
 
   .education-duration {
-    margin-top: 10px;
+    margin-top: 0;
     align-self: flex-start;
+    width: auto;
+  }
+
+  /* Font size adjustments for mobile */
+  .education-title {
+    font-size: 1.2rem;
+  }
+
+  .education-institution {
+    font-size: 0.95rem;
+  }
+
+  .education-grade {
+    font-size: 1.15rem;
+  }
+
+  .education-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .achievement {
+    font-size: 0.75rem;
+  }
+
+  /* Hover effects disabled for mobile */
+  .timeline-content:hover {
+    transform: none;
+    border-color: rgba(157, 78, 221, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Extra small devices (phones under 400px) */
+@media (max-width: 400px) {
+  .timeline-item {
+    padding-left: 40px;
+    padding-right: 12px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+
+  /* Slightly smaller font sizes */
+  .education-title {
+    font-size: 1.15rem;
+  }
+
+  .education-institution {
+    font-size: 0.9rem;
+  }
+
+  .education-grade {
+    font-size: 1.1rem;
+  }
+
+  .education-description {
+    font-size: 0.82rem;
+  }
+
+  .achievement {
+    font-size: 0.72rem;
+  }
+
+  .education-duration {
+    font-size: 0.8rem;
   }
 }

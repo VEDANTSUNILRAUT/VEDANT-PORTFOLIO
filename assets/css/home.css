@@ -26,7 +26,7 @@ body {
   background: var(--bg-dark);
   color: var(--text-light);
   overflow-x: hidden;
-  min-height: 100vh; /* allow vertical expansion */
+  min-height: 100vh;
   position: relative;
   line-height: 1.6;
   font-family: "Montserrat", sans-serif;
@@ -40,11 +40,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  pointer-events: none; /* allows clicks through particles */
+  pointer-events: none;
   filter: brightness(1.8) contrast(1.2);
-}
-canvas {
-  pointer-events: auto !important;
 }
 
 /* ================ NAVIGATION ================ */
@@ -377,116 +374,129 @@ canvas {
   animation: scrollPulse 2s infinite;
 }
 
-/* ================ PROFILE ANIMATION ================ */
-.profile-animation {
+/* ================ PROJECTS SECTION ================ */
+.projects-section {
+  padding: 8rem 10%;
+  background: var(--bg-darker);
   position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
-.spinner-container {
+.section-title {
+  text-align: center;
+  margin-bottom: 5rem;
   position: relative;
-  width: 100%;
-  aspect-ratio: 1/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.spinner {
+.section-title h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    rgba(186, 66, 255, 0.8) 0%,
-    rgba(0, 225, 255, 0.8) 50%,
-    rgba(186, 66, 255, 0.8) 100%
-  );
-  animation: spinning 3s linear infinite;
-  filter: blur(1px);
-  box-shadow: 0px -5px 20px 0px rgba(186, 66, 255, 0.5),
-    0px 5px 20px 0px rgba(0, 225, 255, 0.5);
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
-.spinner1 {
-  position: relative;
-  width: 85%;
-  height: 85%;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1e293b, #334155);
-  z-index: 2;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 15px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.profile-image {
-  width: 95%;
-  height: 95%;
-  border-radius: 50%;
-  object-fit: cover;
-  background: linear-gradient(45deg, #ceced5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 40px rgba(157, 78, 221, 0.4);
 }
 
-/* Hover effects for profile animation */
-.spinner-container:hover .spinner {
-  animation: spinning 1.5s linear infinite;
-  box-shadow: 0px -5px 30px 0px rgba(186, 66, 255, 0.8),
-    0px 5px 30px 0px rgba(0, 225, 255, 0.8);
+.project-image {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
 }
 
-.spinner-container:hover .spinner1 {
-  transform: scale(1.02);
-  box-shadow: 0 0 40px rgba(0, 225, 255, 0.4);
-}
-
-/* Floating icons */
-.floating-icons {
-  position: absolute;
-  top: 0;
-  left: 0;
+.project-image img {
   width: 100%;
   height: 100%;
-  z-index: 3;
+  object-fit: cover;
+  transition: transform 0.8s ease;
 }
 
-.icon {
-  position: absolute;
-  font-size: 24px;
-  color: rgba(0, 225, 255, 0.8);
-  animation: float 6s infinite ease-in-out;
+.project-card:hover .project-image img {
+  transform: scale(1.1);
 }
 
-.icon:nth-child(1) {
-  top: 10%;
-  left: 10%;
+.project-content {
+  padding: 1.8rem;
 }
-.icon:nth-child(2) {
-  top: 20%;
-  right: 15%;
-  animation-delay: 1s;
+
+.project-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text-lighter);
 }
-.icon:nth-child(3) {
-  bottom: 15%;
-  left: 20%;
-  animation-delay: 2s;
+
+.project-description {
+  color: var(--text-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
-.icon:nth-child(4) {
-  bottom: 25%;
-  right: 10%;
-  animation-delay: 3s;
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background: rgba(157, 78, 221, 0.15);
+  color: var(--primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.project-link:hover {
+  color: var(--primary);
+  transform: translateX(5px);
 }
 
 /* ================ ANIMATIONS ================ */
@@ -542,11 +552,23 @@ canvas {
 }
 
 /* ================ RESPONSIVE DESIGN ================ */
+/* Large screens (1200px and below) */
+@media (max-width: 1200px) {
+  .hero-content-wrapper {
+    gap: 10rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
 /* Medium screens (992px and below) */
 @media (max-width: 992px) {
   .hero-title {
     font-size: 3.2rem;
   }
+
   .social-icons {
     display: none;
   }
@@ -557,10 +579,8 @@ canvas {
     text-align: center;
   }
 
-  .hero-left,
   .hero-right {
-    flex: none;
-    width: 100%;
+    margin-top: 10rem;
   }
 
   .cta-buttons,
@@ -570,6 +590,14 @@ canvas {
 
   .stats {
     flex-wrap: wrap;
+  }
+
+  .projects-section {
+    padding: 6rem 8%;
+  }
+
+  .section-title h2 {
+    font-size: 2.2rem;
   }
 }
 
@@ -601,6 +629,7 @@ canvas {
   .nav-links.active {
     right: 0;
   }
+
   .nav-links a {
     margin: 1rem 0;
     font-size: 1.2rem;
@@ -624,11 +653,22 @@ canvas {
   .hero-title {
     font-size: 2.8rem;
   }
+
   .cta-buttons {
     justify-content: center;
   }
+
   .stats {
     justify-content: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-image {
+    height: 220px;
   }
 }
 
@@ -636,7 +676,7 @@ canvas {
 @media (max-width: 576px) {
   .hero-title {
     font-size: 2.2rem;
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
 
   .hero-text {
@@ -658,12 +698,43 @@ canvas {
     text-align: center;
   }
 
-  .profile-image img {
-    width: 250px;
-    height: 250px;
+  .projects-section {
+    padding: 5rem 6%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
   }
 }
-/* ================ NEW MOBILE NAV BAR ================ */
+
+/* Very small screens (400px and below) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .projects-section {
+    padding: 4rem 5%;
+  }
+}
+
+/* ================ MOBILE NAV BAR ================ */
 .mobile-nav-icons {
   display: none;
   gap: 1.2rem;
@@ -719,138 +790,15 @@ canvas {
 .mobile-nav-icon:hover .tooltip {
   opacity: 1;
 }
-/* ================ RESPONSIVE DESIGN ================ */
-/* Medium screens (992px and below) */
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 3.2rem;
-  }
 
-  .social-icons {
-    display: none;
-  }
-
-  .hero-content-wrapper {
-    flex-direction: column;
-    gap: 3rem;
-    text-align: center;
-  }
-
-  .hero-left,
-  .hero-right {
-    flex: none;
-    width: 100%;
-  }
-
-  .cta-buttons,
-  .stats {
-    justify-content: center;
-  }
-
-  .stats {
-    flex-wrap: wrap;
-  }
-}
-
-/* Tablets (768px and below) */
+/* Responsive adjustments for mobile nav */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1.2rem 5%;
-    height: 80px;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    right: -100%;
-    width: 80%;
-    height: calc(100vh - 80px);
-    background: rgba(15, 15, 15, 0.98);
-    backdrop-filter: blur(10px);
-    flex-direction: column;
-    padding-top: 2rem;
-    transition: right 0.4s ease-in-out;
-    z-index: 99;
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-
-  .nav-links a {
-    margin: 1rem 0;
-    font-size: 1.2rem;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .hamburger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
-
-  /* Show mobile nav icons */
   .mobile-nav-icons {
     display: flex;
   }
-
-  .hero {
-    padding: 0 5%;
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: 2.8rem;
-  }
-
-  .cta-buttons {
-    justify-content: center;
-  }
-
-  .stats {
-    justify-content: center;
-  }
 }
 
-/* Mobile devices (576px and below) */
 @media (max-width: 576px) {
-  .hero-title {
-    font-size: 2.2rem;
-    margin-top: 5rem;
-  }
-
-  .hero-text {
-    font-size: 1rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .stat-item {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile-image img {
-    width: 250px;
-    height: 250px;
-  }
-
-  /* Adjust mobile nav icons for small screens */
   .mobile-nav-icons {
     gap: 0.8rem;
   }
@@ -860,7 +808,6 @@ canvas {
   }
 }
 
-/* Very small screens (400px and below) */
 @media (max-width: 400px) {
   .mobile-nav-icons {
     gap: 0.5rem;
@@ -870,7 +817,8 @@ canvas {
     display: none;
   }
 }
-/* load more button of projects */
+
+/* ================ VIEW MORE BUTTON ================ */
 .view-more {
   display: flex;
   justify-content: center;
@@ -897,4 +845,39 @@ canvas {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(157, 78, 221, 0.4);
+}
+
+/* Responsive adjustments for view more button */
+@media (max-width: 768px) {
+  .view-more {
+    margin: 2rem auto;
+  }
+  .view-more-btn {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+  }
+  .hero-subtitle {
+    margin-top: 10rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .view-more-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/* Add this CSS if you don't have it already for spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear;
 }

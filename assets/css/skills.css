@@ -19,6 +19,7 @@
 .container {
   max-width: 1200px;
   width: 100%;
+  height: auto;
   padding: 2rem;
   background: rgba(20, 20, 39, 0.85);
   border-radius: var(--border-radius);
@@ -68,7 +69,7 @@ header p {
 .category-selector {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 0.8rem;
   margin: 2.5rem 0;
 }
@@ -295,6 +296,9 @@ header,
   }
 
   .category-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.6rem;
     margin: 2rem 0;
   }
@@ -361,4 +365,40 @@ header,
   .category-btn {
     padding: 0.5rem 0.8rem;
   }
+}
+.category-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  position: relative; /* for tooltip positioning */
+  color: #333;
+}
+
+.category-btn:hover {
+  color: #6c63ff;
+}
+
+/* Tooltip text */
+.category-btn::after {
+  content: attr(data-label); /* gets text from data-label attribute */
+  position: absolute;
+  bottom: -20px; /* place below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Show tooltip on hover */
+.category-btn:hover::after {
+  opacity: 1;
 }

@@ -94,7 +94,7 @@
                     exceptional user experiences.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">
+                    <a href="./components/project.html" class="btn btn-primary">
                         <i class="fas fa-laptop-code"></i> View My Work
                     </a>
                     <a href="https://drive.google.com/file/d/1rbls9glfWkcx40T2Cyw2DV0NHGfUv6n1/view?usp=sharing"
@@ -102,26 +102,15 @@
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
-
-
-
-
             </div>
 
             <div class="hero-right">
                 <div class="profile-animation">
                     <div class="spinner-container">
-                        <div class="spinner"></div>
                         <div class="spinner1">
                             <div class="profile-image">
                                 <img src="./assets/img/profile-image.png" alt="Profile Image">
                             </div>
-                        </div>
-                        <div class="floating-icons">
-                            <div class="icon"><i class="fab fa-react"></i></div>
-                            <div class="icon"><i class="fab fa-java"></i></div>
-                            <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                            <div class="icon"><i class="fas fa-database"></i></div>
                         </div>
                     </div>
                 </div>
@@ -155,7 +144,7 @@
                     where I can apply my development skills, take on new challenges, and grow into a valuable member of
                     your engineering team.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
+                    <a href="./components/contact.html" class="btn btn-primary">
                         <i class="fas fa-phone"></i> Let's Talk
                     </a>
 
@@ -173,20 +162,20 @@
             </header>
 
             <div class="category-selector">
-                <button class="category-btn active" data-category="languages">
-                    <i class="fas fa-code"></i> Languages
+                <button class="category-btn active" data-category="languages" data-label="Languages">
+                    <i class="fas fa-code"></i>
                 </button>
-                <button class="category-btn" data-category="frontend">
-                    <i class="fas fa-paint-brush"></i> Frontend
+                <button class="category-btn" data-category="frontend" data-label="Frontend">
+                    <i class="fas fa-paint-brush"></i>
                 </button>
-                <button class="category-btn" data-category="backend">
-                    <i class="fas fa-server"></i> Backend
+                <button class="category-btn" data-category="backend" data-label="Backend">
+                    <i class="fas fa-server"></i>
                 </button>
-                <button class="category-btn" data-category="databases">
-                    <i class="fas fa-database"></i> Databases
+                <button class="category-btn" data-category="databases" data-label="Databases">
+                    <i class="fas fa-database"></i>
                 </button>
-                <button class="category-btn" data-category="tools">
-                    <i class="fas fa-tools"></i> Tools
+                <button class="category-btn" data-category="tools" data-label="Tools">
+                    <i class="fas fa-tools"></i>
                 </button>
             </div>
 
@@ -345,14 +334,6 @@
                                 <span class="skill-name">Jira</span>
                             </div>
                             <div class="skill-item">
-                                <i class="fas fa-code-branch skill-icon"></i>
-                                <span class="skill-name">GitFlow</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-jenkins skill-icon"></i>
-                                <span class="skill-name">Jenkins</span>
-                            </div>
-                            <div class="skill-item">
                                 <i class="fab fa-npm skill-icon"></i>
                                 <span class="skill-name">NPM</span>
                             </div>
@@ -409,7 +390,7 @@
                         </div>
                         <span class="education-duration">2021 - 2025</span>
                     </div>
-                    <div class="education-grade">Graduated with 80.00% Aggregate</div>
+                    <div class="education-grade">Graduated with 9.60 CGPA</div>
                     <p class="education-description">
                         Graduated in Computer Science and Engineering with a strong foundation in programming, software
                         development, and problem-solving. Skilled in building optimized, scalable applications using
@@ -417,9 +398,9 @@
                         active participation in technical and cultural events.
                     </p>
                     <div class="achievements">
-                        <span class="achievement">Class Topper - 4th Semester</span>
-                        <span class="achievement">2nd in Department - 4th Semester</span>
+                        <span class="achievement">Class & Department Topper - 8th Semester</span>
                         <span class="achievement">Class & Department Topper - 7th Semester</span>
+                        <span class="achievement">Class Topper & 2nd in Department- 4th Semester</span>
                         <span class="achievement">Vidyoten Makeathon</span>
                         <span class="achievement">Kridayan Cricket</span>
                         <span class="achievement">Hackathons</span>
@@ -586,6 +567,13 @@
                     <span class="tech-item">Problem Solving</span>
                 </div>
             </div>
+
+
+        </div>
+        <div class="view-more">
+            <button class="view-more-btn" onclick="spinGearAndRedirectExperience()">
+                <i id="gear-icon-experience" class="fas fa-gear"></i> View My Experience
+            </button>
         </div>
     </section>
 
@@ -888,6 +876,17 @@
             setTimeout(() => {
                 window.location.href = './components/project.html';
             }, 800);
+        }
+    </script>
+    <script>
+        function spinGearAndRedirectExperience() {
+            const gear = document.getElementById('gear-icon-experience');
+            gear.classList.add('spin');  // Add spinning class (make sure CSS for .spin exists)
+
+            // After animation, redirect (e.g., to experience page or section)
+            setTimeout(() => {
+                window.location.href = './components/experience.html'; // Change URL as needed
+            }, 1000); // 1 second delay for the spin effect
         }
     </script>
 </body>

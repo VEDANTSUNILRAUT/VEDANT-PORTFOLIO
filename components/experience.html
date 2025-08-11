@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0f, #151522);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 25%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 30px;
+        }
+
+        .page-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #9d4edd, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #9d4edd, #38bdf8);
+            border-radius: 2px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .experience-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(157, 78, 221, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 500px;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 78, 221, 0.4);
+            box-shadow: 0 12px 35px rgba(157, 78, 221, 0.25);
+        }
+
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #9d4edd, #38bdf8);
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: white;
+            border: 2px solid #9d4edd;
+            flex-shrink: 0;
+        }
+
+        .company-info {
+            flex-grow: 1;
+        }
+
+        .experience-role {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: #9d4edd;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .experience-duration {
+            display: inline-block;
+            background: rgba(157, 78, 221, 0.15);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        .experience-description {
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .project-highlight {
+            margin-bottom: 20px;
+        }
+
+        .project-highlight h4 {
+            font-size: 1.2rem;
+            color: #38bdf8;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-highlight h4::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(to right, #9d4edd, #38bdf8);
+            border-radius: 2px;
+        }
+
+        .project-highlight ul {
+            padding-left: 20px;
+        }
+
+        .project-highlight li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .project-highlight li::before {
+            content: "▹";
+            color: #9d4edd;
+            position: absolute;
+            left: -18px;
+            top: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tech-item {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(157, 78, 221, 0.2);
+            color: #9d4edd;
+            transform: translateY(-2px);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: transform 0.5s;
+            transform-origin: 0 0;
+            transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+        }
+
+        .work-btn {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .work-btn::before {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.3), transparent);
+            transform: scaleX(0);
+        }
+
+        .work-btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .work-btn:hover {
+            background: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .certificate-btn {
+            background: rgba(157, 78, 221, 0.15);
+            color: #9d4edd;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .certificate-btn::before {
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.3), transparent);
+            transform: scaleX(0);
+        }
+
+        .certificate-btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .certificate-btn:hover {
+            background: rgba(157, 78, 221, 0.3);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1.0s;
+        }
+
+        /* Certificate Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            animation: fadeIn 0.4s;
+        }
+
+        .certificate-image {
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.3);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            top: -50px;
+            left: 11rem;
+
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -30px;
+            right: -15px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #9d4edd;
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .experience-container {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.4rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .experience-container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .experience-card {
+                padding: 25px;
+                min-height: 480px;
+            }
+
+            .action-buttons {
+                flex-direction: row;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                margin-bottom: 30px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .company-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .company-logo {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .experience-role {
+                font-size: 1.3rem;
+            }
+
+            .experience-company {
+                font-size: 1rem;
+            }
+
+            .experience-card {
+                padding: 22px 20px;
+                min-height: 450px;
+            }
+
+            .project-highlight h4 {
+                font-size: 1.15rem;
+            }
+
+            .tech-item {
+                padding: 5px 12px;
+                font-size: 0.8rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .action-btn {
+                width: 100%;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="page-title">Professional Experience</h1>
+            <p class="page-subtitle">A journey through my career, highlighting key roles, responsibilities, and
+                technological expertise developed over the years.</p>
+        </header>
+
+        <div class="experience-container">
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Web Developer Intern</h3>
+                        <p class="experience-company">V K Control Pvt Ltd</p>
+                        <span class="experience-duration">Mar 2025 - Present</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Developed and maintained web pages using PHP, HTML, CSS, and JavaScript. Built and customized
+                    WordPress components for company websites. Contributed to the Sleek bill Software product page
+                    design and content.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Key Achievements:</h4>
+                    <ul>
+                        <li>Created a WordPress portfolio and an invoice generator</li>
+                        <li>Designed 15+ web pages for SleekBill Software</li>
+                        <li>Enhanced website SEO using best practices</li>
+                        <li>Utilized PHP, SQL, HTML, CSS, JavaScript for web development</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">WordPress</span>
+                    <span class="tech-item">HTML</span>
+                    <span class="tech-item">CSS</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">PHP</span>
+                    <span class="tech-item">SQL</span>
+                    <span class="tech-item">SEO</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn work-btn"
+                        onclick="window.location.href='https://github.com/VEDANTSUNILRAUT/V.K.Control.git'">
+                        <i class="fas fa-briefcase"></i> View Work
+                    </button>
+
+                    <button class="action-btn certificate-btn" data-certificate="certificate1">
+                        <i class="fas fa-certificate"></i> Certificate
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Software Development Intern</h3>
+                        <p class="experience-company">Hashed Bit Innovations</p>
+                        <span class="experience-duration">Jun 2024 – Aug 2024 &amp; Mar 2025 – Present</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Built responsive frontend and REST APIs for JSCMS &amp; LMS using React, Node.js, Express, and
+                    MySQL. Managed backend logic, database design, and API integration. Enhanced performance via
+                    code-splitting, lazy loading, and SQL optimization.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Key Achievements:</h4>
+                    <ul>
+                        <li>Worked on two live projects: JSCMS and LMS for Hashed Bit</li>
+                        <li>Improved application responsiveness and load times</li>
+                        <li>Designed efficient backend architecture and optimized queries</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Express</span>
+                    <span class="tech-item">MySQL</span>
+                    <span class="tech-item">REST APIs</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn work-btn"
+                        onclick="window.location.href='https://github.com/VEDANTSUNILRAUT/HashBit-Assignments.git'">
+                        <i class="fas fa-briefcase"></i> View Work
+                    </button>
+
+                    <button class="action-btn certificate-btn" data-certificate="certificate2">
+                        <i class="fas fa-certificate"></i> Certificate
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Java Developer Intern</h3>
+                        <p class="experience-company">TechnoHacks EduTech</p>
+                        <span class="experience-duration">Jan 2024 - Jan 2024</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Developed three Java applications during the internship, gaining practical experience in Java
+                    development, problem-solving, and application design.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Projects Developed:</h4>
+                    <ul>
+                        <li>Calculator Application: Versatile calculator with intuitive interface</li>
+                        <li>To-Do List Manager: Task management with add/delete/update functionality</li>
+                        <li>Number Guessing Game: Interactive game with hint system</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">Java</span>
+                    <span class="tech-item">OOP</span>
+                    <span class="tech-item">Application Design</span>
+                    <span class="tech-item">Problem Solving</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn work-btn"
+                        onclick="window.location.href='https://github.com/VEDANTSUNILRAUT/TechnoHacks-JAVA-Internship.git'">
+                        <i class="fas fa-briefcase"></i> View Work
+                    </button>
+
+                    <button class="action-btn certificate-btn" data-certificate="certificate3">
+                        <i class="fas fa-certificate"></i> Certificate
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Machine Learning & Data Science Intern</h3>
+                        <p class="experience-company">PHN Technology Pvt Ltd, Pune</p>
+                        <span class="experience-duration">April 2023 - June 2023</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Completed an intensive internship focused on machine learning and data science with Python. Gained
+                    hands-on experience in algorithms, data analysis, and predictive modeling.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Key Learning & Achievements:</h4>
+                    <ul>
+                        <li>Applied statistical methods to real-world problems</li>
+                        <li>Developed predictive models using Python</li>
+                        <li>Enhanced teamwork and communication abilities</li>
+                        <li>Worked extensively with Jupyter Notebook and Anaconda</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">Algorithms</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">Jupyter Notebook</span>
+                    <span class="tech-item">Anaconda</span>
+                    <span class="tech-item">Data Analysis</span>
+                </div>
+
+                <div class="action-buttons">
+
+                    <button class="action-btn work-btn"
+                        onclick="window.location.href='  https://github.com/VEDANTSUNILRAUT/PHN-Tech-Internship.git'">
+                        <i class="fas fa-briefcase"></i> View Work
+                    </button>
+
+                    <button class="action-btn certificate-btn" data-certificate="certificate4">
+                        <i class="fas fa-certificate"></i> Certificate
+                    </button>
+                </div>
+            </div>
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Virtual Internship - AI & ML</h3>
+                        <p class="experience-company">National Internship Portal | EduSkillsØ</p>
+                        <span class="experience-duration">July 2024 – September 2024</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Completed a 10-week AI & Machine Learning virtual internship, supported by India Edu Program and
+                    Google for Developers.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Key Details:</h4>
+                    <ul>
+                        <li>Supported by India Edu Program and Google for Developers</li>
+                        <li>Student ID: Sru6se31a2B22921j090e9199</li>
+                        <li>Gained practical skills in AI and machine learning concepts and tools</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">AI</span>
+                    <span class="tech-item">Machine Learning</span>
+                    <span class="tech-item">Virtual Internship</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn certificate-btn" data-certificate="certificate5">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="experience-card animate-in">
+                <div class="company-header">
+                    <div class="company-logo">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="company-info">
+                        <h3 class="experience-role">Virtual Internship - Cloud</h3>
+                        <p class="experience-company">National Internship Portal | EduSkillsØ</p>
+                        <span class="experience-duration">Oct 2024 – Dec 2024</span>
+                    </div>
+                </div>
+
+                <p class="experience-description">
+                    Completed a 10-week virtual internship program focused on cloud technologies and skills, provided by
+                    AWS.
+                </p>
+
+                <div class="project-highlight">
+                    <h4>Key Details:</h4>
+                    <ul>
+                        <li>Curriculum provided by AWS</li>
+                        <li>Student ID: STU6583142f922921703089199</li>
+                        <li>Enhanced understanding of cloud computing and related tools</li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-item">Cloud Computing</span>
+                    <span class="tech-item">AWS</span>
+                    <span class="tech-item">Virtual Internship</span>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn certificate-btn" data-certificate="certificate6">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Professional Experience Portfolio | Designed with ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Certificate Modals -->
+    <div id="certificate1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate1')">&times;</span>
+            <img src="https://via.placeholder.com/800x600/151522/9d4edd?text=VK+Control+Certificate"
+                alt="V K Control Certificate" class="certificate-image">
+        </div>
+    </div>
+
+    <div id="certificate2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate2')">&times;</span>
+            <img src="../assets/img/Certificate/Certificate-Vedant Sunil Raut-1.png"
+                alt="Hashed Bit Innovations Certificate" class="certificate-image">
+        </div>
+    </div>
+
+    <div id="certificate3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate3')">&times;</span>
+            <img src="../assets/img/Certificate/Techno.png" alt="TechnoHacks Certificate" class="certificate-image">
+        </div>
+    </div>
+
+    <div id="certificate4" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate4')">&times;</span>
+            <img src="../assets/img/Certificate/PHN TECHNOLOGY CERTIFICATE -1.png" alt="PHN Technology Certificate"
+                class="certificate-image">
+        </div>
+    </div>
+
+    <div id="certificate5" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate5')">&times;</span>
+            <img src="../assets/img/Certificate/VEDANT SUNIL RAUT 368807-1.png" alt="AI & ML Certificate"
+                class="certificate-image">
+        </div>
+    </div>
+
+    <div id="certificate6" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certificate6')">&times;</span>
+            <img src="../assets/img/Certificate/AWS Clous Certificate-VEDANT SUNIL RAUT-1.png" alt="Cloud Certificate"
+                class="certificate-image">
+        </div>
+    </div>
+
+    <script>
+        // Add hover effect to cards
+        document.querySelectorAll('.experience-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-8px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `fadeIn 0.8s ease forwards`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Certificate Modal Functions
+        document.querySelectorAll('.certificate-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const certificateId = this.getAttribute('data-certificate');
+                openModal(certificateId);
+            });
+        });
+
+        function openModal(certificateId) {
+            document.getElementById(certificateId).style.display = "block";
+        }
+
+        function closeModal(certificateId) {
+            document.getElementById(certificateId).style.display = "none";
+        }
+
+        // Close modal when clicking outside the content
+        window.addEventListener('click', function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

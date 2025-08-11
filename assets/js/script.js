@@ -1,3 +1,4 @@
+// BackGround Spider Man Effect
 document.addEventListener("DOMContentLoaded", () => {
   // Breathing RGB color sequence
   const rgbColors = [
@@ -253,49 +254,49 @@ document.getElementById("backToTopBtn")?.addEventListener("click", function () {
 });
 
 // photo animation
-document.addEventListener("DOMContentLoaded", () => {
-  // Add dynamic glow effect to spinner on mouse move
-  const spinner = document.querySelector(".spinner");
-  const container = document.querySelector(".spinner-container");
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Add dynamic glow effect to spinner on mouse move
+//   const spinner = document.querySelector(".spinner");
+//   const container = document.querySelector(".spinner-container");
 
-  container.addEventListener("mousemove", (e) => {
-    const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+//   container.addEventListener("mousemove", (e) => {
+//     const rect = container.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+//     const centerX = rect.width / 2;
+//     const centerY = rect.height / 2;
 
-    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+//     const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
 
-    spinner.style.background = `conic-gradient(
-                    from ${angle}deg at 50% 50%,
-                    rgba(186, 66, 255, 0.9) 0%,
-                    rgba(0, 225, 255, 0.9) 50%,
-                    rgba(186, 66, 255, 0.9) 100%
-                )`;
-  });
+//     spinner.style.background = `conic-gradient(
+//                     from ${angle}deg at 50% 50%,
+//                     rgba(186, 66, 255, 0.9) 0%,
+//                     rgba(0, 225, 255, 0.9) 50%,
+//                     rgba(186, 66, 255, 0.9) 100%
+//                 )`;
+//   });
 
-  container.addEventListener("mouseleave", () => {
-    spinner.style.background = `conic-gradient(
-                    from 0deg at 50% 50%,
-                    rgba(186, 66, 255, 0.8) 0%,
-                    rgba(0, 225, 255, 0.8) 50%,
-                    rgba(186, 66, 255, 0.8) 100%
-                )`;
-  });
+//   container.addEventListener("mouseleave", () => {
+//     spinner.style.background = `conic-gradient(
+//                     from 0deg at 50% 50%,
+//                     rgba(186, 66, 255, 0.8) 0%,
+//                     rgba(0, 225, 255, 0.8) 50%,
+//                     rgba(186, 66, 255, 0.8) 100%
+//                 )`;
+//   });
 
-  // Add random floating to icons
-  const icons = document.querySelectorAll(".icon");
+//   // Add random floating to icons
+//   const icons = document.querySelectorAll(".icon");
 
-  setInterval(() => {
-    icons.forEach((icon) => {
-      const randomX = Math.random() * 20 - 10;
-      const randomY = Math.random() * 20 - 10;
-      icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    });
-  }, 3000);
-});
+//   setInterval(() => {
+//     icons.forEach((icon) => {
+//       const randomX = Math.random() * 20 - 10;
+//       const randomY = Math.random() * 20 - 10;
+//       icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
+//     });
+//   }, 3000);
+// });
 // ===== THEME TOGGLE FUNCTIONALITY =====
 const themeToggle = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;

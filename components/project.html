@@ -540,6 +540,35 @@
                 </div>
             </div>
         </div>
+        <div class="project-card">
+            <div class="project-img">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EInvoice Generator%3C/text%3E%3C/svg%3E"
+                    alt="Invoice Generator" loading="lazy" data-src="../assets/img/invoice.jpg">
+            </div>
+            <div class="project-content">
+                <h3>Invoice Generator</h3>
+                <p>Automated invoice creation tool with customizable templates, client management, and payment tracking.
+                    Generates professional PDF invoices in seconds.</p>
+                <div class="project-skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">html2pdf</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://invoicegenerator.free.nf/" class="github-btn live-demo-btn">
+                        <i class="fas fa-play-circle"></i> Live Demo
+                    </a>
+                    <div class="project-stats">
+                        <a href="https://github.com/VEDANTSUNILRAUT/Invoice-Generator.git" class="github-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Project 2 - Has live demo -->
         <div class="project-card">
@@ -604,35 +633,7 @@
         </div>
 
         <!-- Project 4 - Has live demo -->
-        <div class="project-card">
-            <div class="project-img">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EInvoice Generator%3C/text%3E%3C/svg%3E"
-                    alt="Invoice Generator" loading="lazy" data-src="../assets/img/invoice.jpg">
-            </div>
-            <div class="project-content">
-                <h3>Invoice Generator</h3>
-                <p>Automated invoice creation tool with customizable templates, client management, and payment tracking.
-                    Generates professional PDF invoices in seconds.</p>
-                <div class="project-skills">
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">html2pdf</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://invoicegenerator.free.nf/" class="github-btn live-demo-btn">
-                        <i class="fas fa-play-circle"></i> Live Demo
-                    </a>
-                    <div class="project-stats">
-                        <a href="https://github.com/VEDANTSUNILRAUT/Invoice-Generator.git" class="github-btn">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Project 5 - No live demo -->
         <div class="project-card">
@@ -729,7 +730,7 @@
 
     <!-- View More Button -->
     <div class="view-more">
-        <button class="view-more-btn">Load More Projects</button>
+        <button id="loadMoreBtn" class="view-more-btn">Load More Projects</button>
     </div>
 
     <!-- Footer -->
@@ -742,7 +743,18 @@
         </div>
         <p>© 2023 My Portfolio. All rights reserved. Designed with <span style="color: var(--accent);">♥</span></p>
     </footer>
+    <script>
+        document.getElementById("loadMoreBtn").addEventListener("click", function () {
+            const btn = this;
+            btn.textContent = "More projects are coming...";
 
+            // Simulate loading time (2 seconds)
+            setTimeout(() => {
+                // Here you would actually load or reveal projects
+                btn.textContent = "Load More Projects";
+            }, 2000);
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const loadingSpinner = document.getElementById('loadingSpinner');
@@ -809,15 +821,15 @@
             });
 
             // View more projects button
-            document.querySelector('.view-more-btn').addEventListener('click', function () {
-                this.textContent = 'Loading...';
-                this.disabled = true;
-                setTimeout(() => {
-                    alert('More projects would be loaded here in a real implementation!');
-                    this.textContent = 'Load More Projects';
-                    this.disabled = false;
-                }, 1000);
-            });
+            // document.querySelector('.view-more-btn').addEventListener('click', function () {
+            //     this.textContent = 'Loading...';
+            //     this.disabled = true;
+            //     setTimeout(() => {
+            //         alert('More projects would be loaded here in a real implementation!');
+            //         this.textContent = 'Load More Projects';
+            //         this.disabled = false;
+            //     }, 1000);
+            // });
 
             // Safety fallback for spinner
             setTimeout(() => {
