@@ -18,13 +18,6 @@ html {
   scroll-padding-top: 80px;
 }
 
-/* body {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  overflow-x: hidden;
-  line-height: 1.6;
-} */
-
 /* === Section Common === */
 section {
   padding: var(--section-spacing) 10%;
