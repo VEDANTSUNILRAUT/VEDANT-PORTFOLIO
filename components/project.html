@@ -284,6 +284,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .github-btn {
@@ -297,6 +299,9 @@
             gap: 0.5rem;
             font-weight: 500;
             transition: var(--transition);
+            flex: 1;
+            min-width: 140px;
+            justify-content: center;
         }
 
         .github-btn:hover {
@@ -464,6 +469,38 @@
             }
         }
 
+        @media (max-width: 600px) {
+
+            /* Improved button scaling for mobile */
+            .github-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                min-width: 120px;
+            }
+
+            .project-content {
+                padding: 1.2rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
+
+            .project-stats {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .view-more-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 1rem;
@@ -475,6 +512,21 @@
 
             .page-title h1 {
                 font-size: 2.3rem;
+            }
+
+            .project-img {
+                height: 180px;
+            }
+
+            .home-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .github-btn {
+                min-width: 100%;
             }
         }
     </style>
@@ -512,7 +564,7 @@
     <!-- Projects Grid -->
     <div class="projects-container">
         <!-- Project 1 - Has live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3ETalent Bridge%3C/text%3E%3C/svg%3E"
                     alt="Talent Bridge" loading="lazy" data-src="../assets/img/Job.jpg">
@@ -540,7 +592,7 @@
                 </div>
             </div>
         </div>
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EInvoice Generator%3C/text%3E%3C/svg%3E"
                     alt="Invoice Generator" loading="lazy" data-src="../assets/img/invoice.jpg">
@@ -571,7 +623,7 @@
         </div>
 
         <!-- Project 2 - Has live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3ECattle Hub%3C/text%3E%3C/svg%3E"
                     alt="Cattle Hub Management System" loading="lazy" data-src="../assets/img/cattle.jpg">
@@ -602,7 +654,7 @@
         </div>
 
         <!-- Project 3 - No live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EGym Management%3C/text%3E%3C/svg%3E"
                     alt="Gym Management Hub" loading="lazy" data-src="../assets/img/gym.jpg">
@@ -632,11 +684,8 @@
             </div>
         </div>
 
-        <!-- Project 4 - Has live demo -->
-
-
         <!-- Project 5 - No live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EHotel Management%3C/text%3E%3C/svg%3E"
                     alt="Hotel Management System" loading="lazy" data-src="../assets/img/hotel.jpg">
@@ -668,7 +717,7 @@
         </div>
 
         <!-- Project 6 - Has live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EToDo List%3C/text%3E%3C/svg%3E"
                     alt="ToDo List" loading="lazy" data-src="../assets/img/Todo.jpg">
@@ -698,7 +747,7 @@
         </div>
 
         <!-- Project 7 - Has live demo -->
-        <div class="project-card">
+        <div class="project-card loaded">
             <div class="project-img">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='220' viewBox='0 0 350 220'%3E%3Crect width='350' height='220' fill='%232d2d42'/%3E%3Ctext x='50%25' y='50%25' font-size='18' text-anchor='middle' fill='%239d4edd' font-family='Arial'%3EPortfolio%3C/text%3E%3C/svg%3E"
                     alt="Portfolio" loading="lazy" data-src="../assets/img/portfolio.jpg">
@@ -743,18 +792,7 @@
         </div>
         <p>© 2023 My Portfolio. All rights reserved. Designed with <span style="color: var(--accent);">♥</span></p>
     </footer>
-    <script>
-        document.getElementById("loadMoreBtn").addEventListener("click", function () {
-            const btn = this;
-            btn.textContent = "More projects are coming...";
 
-            // Simulate loading time (2 seconds)
-            setTimeout(() => {
-                // Here you would actually load or reveal projects
-                btn.textContent = "Load More Projects";
-            }, 2000);
-        });
-    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const loadingSpinner = document.getElementById('loadingSpinner');
@@ -821,15 +859,19 @@
             });
 
             // View more projects button
-            // document.querySelector('.view-more-btn').addEventListener('click', function () {
-            //     this.textContent = 'Loading...';
-            //     this.disabled = true;
-            //     setTimeout(() => {
-            //         alert('More projects would be loaded here in a real implementation!');
-            //         this.textContent = 'Load More Projects';
-            //         this.disabled = false;
-            //     }, 1000);
-            // });
+            document.getElementById('loadMoreBtn').addEventListener('click', function () {
+                const btn = this;
+                btn.textContent = "Loading...";
+                btn.disabled = true;
+
+                // Simulate loading time (2 seconds)
+                setTimeout(() => {
+                    // Here you would actually load or reveal projects
+                    btn.textContent = "Load More Projects";
+                    btn.disabled = false;
+                    alert('More projects would be loaded here in a real implementation!');
+                }, 2000);
+            });
 
             // Safety fallback for spinner
             setTimeout(() => {
