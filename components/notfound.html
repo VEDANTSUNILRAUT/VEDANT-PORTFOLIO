@@ -33,15 +33,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 1rem;
             position: relative;
+            overflow: hidden;
         }
 
-        /* Home button (top-right) */
+        /* Home button */
         .top-home-btn {
-            /* position: absolute;
-            top: 20px;
-            right: 20px; */
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
@@ -57,6 +55,7 @@
             box-shadow: 0 5px 20px rgba(157, 78, 221, 0.5);
             transition: all 0.3s ease;
             z-index: 1000;
+            margin-top: 1rem;
         }
 
         .top-home-btn:hover {
@@ -65,14 +64,20 @@
         }
 
         .notfound-container {
-            max-width: 800px;
-            padding: 3rem;
+            width: 100%;
+            max-width: 95vw;
+            max-height: 95vh;
+            padding: 2rem;
             background: rgba(26, 26, 46, 0.85);
             border-radius: 20px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .notfound-container::before {
@@ -98,8 +103,8 @@
         }
 
         h1 {
-            font-size: 5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin-bottom: 0.5rem;
             background: linear-gradient(90deg, var(--accent), var(--primary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -107,23 +112,28 @@
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
             color: var(--text-lighter);
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+        }
+
+        #redirect-msg {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            margin-bottom: 1.5rem;
         }
 
         .typed-text {
             display: inline-block;
             position: relative;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 1.5rem;
         }
 
         .typed-text::after {
@@ -147,13 +157,14 @@
         }
 
         .animation-container {
-            margin: 3rem auto;
+            margin: 1.5rem auto;
+            width: 100%;
             max-width: 300px;
         }
 
         .animation {
             position: relative;
-            height: 150px;
+            height: clamp(100px, 20vw, 150px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -161,8 +172,8 @@
 
         .box {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: clamp(15px, 4vw, 20px);
+            height: clamp(15px, 4vw, 20px);
             background: var(--secondary);
             border-radius: 50%;
             animation: move 3s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -203,48 +214,128 @@
             }
         }
 
+        .working-img {
+            width: clamp(150px, 40vw, 200px);
+            height: clamp(150px, 40vw, 200px);
+            object-fit: contain;
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            .notfound-container {
+                padding: 1.5rem;
+            }
+
             h1 {
-                font-size: 4rem;
+                margin-bottom: 0.3rem;
             }
 
             h2 {
-                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .notfound-container {
+                padding: 1rem;
+                max-width: 98vw;
+                max-height: 98vh;
+            }
+
+            .animation-container {
+                margin: 1rem auto;
             }
 
             .top-home-btn {
-                padding: 0.6rem 1rem;
+                padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
             }
+
+            @keyframes move {
+
+                0%,
+                100% {
+                    transform: translate(0, 0);
+                }
+
+                25% {
+                    transform: translate(60px, 0);
+                }
+
+                50% {
+                    transform: translate(60px, 60px);
+                }
+
+                75% {
+                    transform: translate(0, 60px);
+                }
+            }
         }
 
-        .spinner {
-            width: 80px;
-            height: 80px;
-            border: 6px solid rgba(255, 255, 255, 0.1);
-            border-top: 6px solid var(--secondary);
-            border-right: 6px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1.2s linear infinite;
-            margin: auto;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        @media (max-height: 600px) {
+            .notfound-container {
+                max-height: 97vh;
+                padding: 1rem;
             }
 
-            100% {
-                transform: rotate(360deg);
+            h1 {
+                font-size: clamp(2.5rem, 8vh, 4rem);
+                margin-bottom: 0.2rem;
+            }
+
+            h2 {
+                font-size: clamp(1.3rem, 4vh, 2rem);
+                margin-bottom: 0.5rem;
+            }
+
+            p,
+            .typed-text {
+                font-size: clamp(0.9rem, 2.5vh, 1rem);
+                margin-bottom: 0.8rem;
+            }
+
+            .working-img {
+                width: clamp(120px, 25vh, 180px);
+                height: clamp(120px, 25vh, 180px);
+            }
+
+            .animation {
+                height: clamp(80px, 15vh, 120px);
+            }
+
+            @keyframes move {
+
+                0%,
+                100% {
+                    transform: translate(0, 0);
+                }
+
+                25% {
+                    transform: translate(50px, 0);
+                }
+
+                50% {
+                    transform: translate(50px, 50px);
+                }
+
+                75% {
+                    transform: translate(0, 50px);
+                }
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Top right Home button -->
-
-
     <div class="notfound-container">
         <!-- Redirect Message -->
         <p id="redirect-msg">
@@ -259,7 +350,7 @@
 
         <!-- Animated Image -->
         <div>
-            <img src="../assets/img/working.gif" alt="Working animation" style="width: 200px; height: 200px;">
+            <img src="../assets/img/working.gif" alt="Working animation" class="working-img">
         </div>
 
         <!-- Status Text -->
@@ -287,14 +378,11 @@
                 if (document.referrer) {
                     window.history.back();
                 } else {
-                    window.location.href = "index.html"; // fallback if no referrer
+                    window.location.href = "javascript:void(0)"; // fallback if no referrer
                 }
             }
         }, 1000); // 1 second per step
     </script>
-
-
-
 </body>
 
 </html>

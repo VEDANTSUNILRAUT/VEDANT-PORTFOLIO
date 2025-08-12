@@ -3,6 +3,7 @@
   background: var(--bg-darker);
   padding: 80px 10% 40px;
   position: relative;
+  border-radius: 15px;
 }
 
 .footer-content {

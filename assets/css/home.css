@@ -580,7 +580,8 @@ body {
   }
 
   .hero-right {
-    margin-top: 10rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 
   .cta-buttons,
@@ -857,7 +858,7 @@ body {
     font-size: 1rem;
   }
   .hero-subtitle {
-    margin-top: 10rem;
+    margin-top: 6rem;
     font-size: 2rem;
   }
 }
