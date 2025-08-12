@@ -16,7 +16,15 @@
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- CSS Files -->
     <link rel="stylesheet" href="./assets/css/home.css">
     <link rel="stylesheet" href="./assets/css/about.css">
@@ -125,15 +133,17 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Get to know the person behind the code</p>
+        <div class="section-header">
+            <h1>About Me</h1>
+            <p>Get to know the person behind the code</p>
+        </div>
 
         <div class="about-content">
             <div class="about-image">
                 <img src="./assets/img/about-img.png" alt="Vedant Raut">
             </div>
             <div class="about-text">
-                <h3>Java Developer | Full-Stack Developer</h3>
+                <h3>Aspiring Software Engineer | Java & Full-Stack Developer </h3>
 
                 <p>I’m Vedant Raut, a recent Computer Science graduate (2025) with a strong passion for building
                     impactful web applications. With hands-on internship experience and a track record of delivering
@@ -154,228 +164,255 @@
             </div>
         </div>
     </section>
-
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <header>
-                <h1>My Tech Stack</h1>
-                <p>Technologies and tools I specialize in across different domains of software development</p>
-                <div class="divider"></div>
-            </header>
-
-            <div class="category-selector">
-                <button class="category-btn active" data-category="languages" data-label="Languages">
-                    <i class="fas fa-code"></i>
-                </button>
-                <button class="category-btn" data-category="frontend" data-label="Frontend">
-                    <i class="fas fa-paint-brush"></i>
-                </button>
-                <button class="category-btn" data-category="backend" data-label="Backend">
-                    <i class="fas fa-server"></i>
-                </button>
-                <button class="category-btn" data-category="databases" data-label="Databases">
-                    <i class="fas fa-database"></i>
-                </button>
-                <button class="category-btn" data-category="tools" data-label="Tools">
-                    <i class="fas fa-tools"></i>
-                </button>
-            </div>
-
-            <div class="skills-container">
-                <div class="skills-slider">
-                    <!-- Languages -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h2 class="category-title">Languages & Core Concepts</h2>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fas fa-c skill-icon"></i>
-                                <span class="skill-name">C</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-java skill-icon"></i>
-                                <span class="skill-name">Java</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-cubes skill-icon"></i>
-                                <span class="skill-name">OOP</span>
-                            </div>
-
-                            <div class="skill-item">
-                                <i class="fas fa-stream skill-icon"></i>
-                                <span class="skill-name">DSA</span>
-                            </div>
-
-                            <div class="skill-item">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span class="skill-name">DBMS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Frontend -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <h2 class="category-title">Frontend</h2>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fab fa-react skill-icon"></i>
-                                <span class="skill-name">React</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-bootstrap skill-icon"></i>
-                                <span class="skill-name">Bootstrap</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-html5 skill-icon"></i>
-                                <span class="skill-name">HTML5</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-css3-alt skill-icon"></i>
-                                <span class="skill-name">CSS3</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-js skill-icon"></i>
-                                <span class="skill-name">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Backend -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <h2 class="category-title">Backend</h2>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fab fa-node-js skill-icon"></i>
-                                <span class="skill-name">Node.js</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-bolt skill-icon"></i>
-                                <span class="skill-name">Express</span>
-                            </div>
-                            <!-- Java -->
-                            <div class="skill-item">
-                                <i class="fab fa-java skill-icon"></i>
-                                <span class="skill-name">Java</span>
-                            </div>
-
-                            <!-- Servlet -->
-                            <div class="skill-item">
-                                <i class="fas fa-server skill-icon"></i>
-                                <span class="skill-name">Servlet</span>
-                            </div>
-
-                            <!-- JDBC -->
-                            <div class="skill-item">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span class="skill-name">JDBC</span>
-                            </div>
-
-                            <!-- Spring Boot -->
-                            <div class="skill-item">
-                                <i class="fas fa-leaf skill-icon"></i>
-                                <span class="skill-name">Spring Boot</span>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Databases -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h2 class="category-title">Databases</h2>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fas fa-leaf skill-icon"></i>
-                                <span class="skill-name">MongoDB</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span class="skill-name">MySQL</span>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Tools -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h2 class="category-title">Tools</h2>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fab fa-git-alt skill-icon"></i>
-                                <span class="skill-name">Git</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-github skill-icon"></i>
-                                <span class="skill-name">GitHub</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-jira skill-icon"></i>
-                                <span class="skill-name">Jira</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-npm skill-icon"></i>
-                                <span class="skill-name">NPM</span>
-                            </div>
-
-                            <!-- Newly Added Tools -->
-                            <div class="skill-item">
-                                <i class="fas fa-code skill-icon"></i>
-                                <span class="skill-name">VS Code</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span class="skill-name">Workbench</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-paper-plane skill-icon"></i>
-                                <span class="skill-name">Postman</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fas fa-leaf skill-icon"></i>
-                                <span class="skill-name">Spring Suite</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="slider-indicator">
-                <div class="indicator-dot active" data-index="0"></div>
-                <div class="indicator-dot" data-index="1"></div>
-                <div class="indicator-dot" data-index="2"></div>
-                <div class="indicator-dot" data-index="3"></div>
-                <div class="indicator-dot" data-index="4"></div>
-            </div>
+    <!-- Tech Stack -->
+    <section id="skills" class="skills-section" aria-label="Skill categories and technologies">
+        <div class="section-header">
+            <h1>Teck Stack</h1>
+            <p>A showcase of my diverse skills and technologies I've mastered throughout my development career</p>
         </div>
+        <!-- languages -->
+        <article class="skill-card" aria-labelledby="frontend-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="mdi:code-braces" data-inline="false"
+                        style="font-size: 28px; color: #4caf50;"></span>
+                </div>
+                <h2 id="frontend-title"> Languages </h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="C programming language">
+                    <i class="devicon-c-plain colored tag-icon" style="color: #A8B9CC; font-size: 20px;"></i> C language
+                </span>
+                <span class="tag" title="Java programming language">
+                    <i class="devicon-java-plain colored tag-icon" style="color: #f89820; font-size: 20px;"></i> Java
+                </span>
+                <span class="tag" title="Data Structures & Algorithms">
+                    <i class="fa-solid fa-code-branch colored tag-icon" style="color: #6f42c1; font-size: 20px;"></i>
+                    DSA
+                </span>
+                <span class="tag" title="Object Oriented Programming">
+                    <span class="material-icons tag-icon"
+                        style="color: #2196f3; font-size: 20px; vertical-align: middle;">category</span> OOP
+                </span>
+                <span class="tag" title="Database Management System">
+                    <i class="devicon-mysql-plain colored tag-icon" style="color: #4479A1; font-size: 20px;"></i> DBMS
+                </span>
+                <span class="tag" title="Operating System">
+                    <i class="fa-brands fa-linux colored tag-icon" style="color: #FCC624; font-size: 20px;"></i> OS
+                </span>
+            </div>
+
+        </article>
+        <!-- Frontend Development -->
+        <article class="skill-card" aria-labelledby="frontend-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="logos:react" data-inline="false"
+                        style="font-size: 28px; color: #61dafb;"></span>
+                </div>
+                <h2 id="frontend-title">Frontend Development</h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="React JavaScript Library">
+                    <i class="devicon-react-original colored tag-icon"></i> React
+                </span>
+                <span class="tag" title="HTML language">
+                    <i class="fa-brands fa-html5 tag-icon" style="color:#E34F26;"></i> HTML
+                </span>
+                <span class="tag" title="CSS styling language">
+                    <i class="fa-brands fa-css3-alt tag-icon" style="color:#1572B6;"></i> CSS
+                </span>
+                <span class="tag" title="JavaScript language">
+                    <i class="devicon-javascript-plain colored tag-icon"></i> JavaScript
+                </span>
+                <span class="tag" title="Tailwind CSS Framework">
+                    <i class="devicon-tailwindcss-plain colored tag-icon"></i> Tailwind CSS
+                </span>
+                <span class="tag" title="Bootstrap CSS Framework">
+                    <i class="fa-brands fa-bootstrap tag-icon" style="color:#7952B3;"></i> Bootstrap
+                </span>
+                <span class="tag" title="Java Server Pages (JSP)">
+                    <i class="fa-solid fa-code tag-icon" style="color:#007396;"></i> JSP
+                </span>
+            </div>
+
+
+        </article>
+
+        <!-- Backend Development -->
+        <article class="skill-card" aria-labelledby="backend-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="mdi:server" data-inline="false"
+                        style="font-size: 28px; color: #2196f3;"></span>
+                </div>
+                <h2 id="backend-title">Backend Development</h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="Java programming language">
+                    <span class="iconify tag-icon" data-icon="logos:java" data-inline="false"
+                        style="color: #f89820;"></span> Java
+                </span>
+                <span class="tag" title="Node.js runtime environment">
+                    <span class="iconify tag-icon" data-icon="logos:nodejs-icon" data-inline="false"
+                        style="color: #3C873A;"></span> Node.js
+                </span>
+                <span class="tag" title="MongoDB database">
+                    <span class="iconify tag-icon" data-icon="logos:mongodb-icon" data-inline="false"
+                        style="color: #47A248;"></span> MongoDB
+                </span>
+                <span class="tag" title="REST APIs">
+                    <span class="iconify tag-icon" data-icon="mdi:webhook" data-inline="false"
+                        style="color: #FF4081;"></span> REST APIs
+                </span>
+                <span class="tag" title="Java Servlets">
+                    <span class="iconify tag-icon" data-icon="logos:java" data-inline="false"
+                        style="color: #f89820;"></span> Servlet
+                </span>
+                <span class="tag" title="Spring Boot Framework">
+                    <span class="iconify tag-icon" data-icon="logos:spring-icon" data-inline="false"
+                        style="color: #6DB33F;"></span> Spring Boot
+                </span>
+                <span class="tag" title="PHP programming language">
+                    <span class="iconify tag-icon" data-icon="logos:php" data-inline="false"
+                        style="color: #777BB3;"></span> PHP
+                </span>
+                <span class="tag" title="JDBC (Java Database Connectivity)">
+                    <span class="iconify tag-icon" data-icon="mdi:database" data-inline="false"
+                        style="color: #4caf50;"></span> JDBC
+                </span>
+                <span class="tag" title="Apache Tomcat server"
+                    style="display: inline-flex; align-items: center; gap: 6px;">
+
+                    <span class="iconify tag-icon" data-icon="mdi:cat" data-inline="false"
+                        style="color:#EE0000;"></span>
+                    Apache Tomcat
+                </span>
+
+
+            </div>
+
+
+        </article>
+
+        <!-- UI/UX Design -->
+        <article class="skill-card" aria-labelledby="uiux-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="mdi:database" data-inline="false"
+                        style="font-size: 28px; color: #4caf50;"></span>
+                </div>
+                <h2 id="uiux-title">Database</h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="MySQL database">
+                    <span class="iconify tag-icon" data-icon="logos:mysql" data-inline="false"
+                        style="color:#4479A1;"></span> MySQL
+                </span>
+                <span class="tag" title="MongoDB database">
+                    <span class="iconify tag-icon" data-icon="logos:mongodb-icon" data-inline="false"
+                        style="color:#47A248;"></span> MongoDB
+                </span>
+            </div>
+
+        </article>
+
+        <!-- Tools & Technologies -->
+        <article class="skill-card" aria-labelledby="tools-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="mdi:chip" data-inline="false"
+                        style="font-size: 28px; color: #ff5722;"></span>
+                </div>
+                <h2 id="tools-title">Tools &amp; Technologies</h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="Visual Studio Code editor">
+                    <span class="iconify tag-icon" data-icon="vscode-icons:file-type-vscode" data-inline="false"
+                        style="color:#007ACC;"></span> VS Code
+                </span>
+                <span class="tag" title="Git version control system">
+                    <span class="iconify tag-icon" data-icon="logos:git-icon" data-inline="false"
+                        style="color:#F05032;"></span> Git
+                </span>
+                <span class="tag" title="GitHub platform" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span class="iconify tag-icon" data-icon="logos:github-icon" data-inline="false"
+                        style="color:#fff; background: rgb(248, 246, 246); border-radius: 50%; padding: 4px;"></span>
+                    GitHub
+                </span>
+                <span class="tag" title="Jira project management tool">
+                    <span class="iconify tag-icon" data-icon="logos:jira" data-inline="false"
+                        style="color:#0052CC;"></span> Jira
+                </span>
+                <span class="tag" title="Spring Tool Suite IDE">
+                    <span class="iconify tag-icon" data-icon="logos:spring-icon" data-inline="false"
+                        style="color:#6DB33F;"></span> Spring Suite
+                </span>
+                <span class="tag" title="MySQL Workbench">
+                    <span class="iconify tag-icon" data-icon="logos:mysql" data-inline="false"
+                        style="color:#4479A1;"></span> Workbench
+                </span>
+
+                <span class="tag" title="XAMPP server">
+                    <span class="iconify tag-icon" data-icon="simple-icons:xampp" data-inline="false"
+                        style="color:#FF7900;"></span> XAMPP
+                </span>
+
+            </div>
+
+        </article>
+
+        <!-- Creative Skills -->
+        <article class="skill-card" aria-labelledby="creative-title">
+            <div class="skill-header">
+                <div class="icon-container" aria-hidden="true">
+                    <span class="iconify" data-icon="mdi:palette" data-inline="false"
+                        style="font-size: 28px; color: #ff5722;"></span>
+                </div>
+                <h2 id="creative-title">Creative Skills</h2>
+            </div>
+
+            <div class="skill-tags">
+                <span class="tag" title="Responsive Design">
+                    <span class="iconify tag-icon" data-icon="mdi:monitor-cellphone" data-inline="false"
+                        style="color:#4caf50;"></span> Responsive
+                </span>
+                <span class="tag" title="UI Animation skills">
+                    <span class="iconify tag-icon" data-icon="mdi:animation" data-inline="false"
+                        style="color:#2196f3;"></span> UI Animation
+                </span>
+                <span class="tag" title="Animated Logo">
+                    <span class="iconify tag-icon" data-icon="mdi:play-circle-outline" data-inline="false"
+                        style="color:#f44336;"></span> Animated Logo
+                </span>
+                <span class="tag" title="UI / UX Design">
+                    <span class="iconify tag-icon" data-icon="mdi:view-dashboard-outline" data-inline="false"
+                        style="color:#ff9800;"></span> UI / UX
+                </span>
+                <span class="tag" title="Photography">
+                    <span class="iconify tag-icon" data-icon="mdi:camera" data-inline="false"
+                        style="color:#795548;"></span> Photography
+                </span>
+                <span class="tag" title="Video Editing">
+                    <span class="iconify tag-icon" data-icon="mdi:movie-edit" data-inline="false"
+                        style="color:#e91e63;">
+                    </span> Video Editing
+                </span>
+            </div>
+
+        </article>
     </section>
     <!-- Project Section -->
     <section class="project-section" id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Creative solutions to real-world challenges</p>
+        <div class="section-header">
+            <h1>Featured Projects</h1>
+            <p>Creative solutions to real-world challenges</p>
+        </div>
 
         <div class="project-grid">
             <!-- Project 1 -->
@@ -497,9 +534,10 @@
 
     <!-- Internship Section -->
     <section id="internships" class="internship-section">
-        <h2 class="section-title">Professional Experience</h2>
-        <p class="section-subtitle">My industry journey and hands-on learning in software development</p>
-
+        <div class="section-header">
+            <h1>Professional Experience</h1>
+            <p>My industry journey and hands-on learning in software development</p>
+        </div>
         <div class="internship-container">
             <!-- HashedBit Innovations -->
             <div class="internship-card animate-in">
@@ -610,9 +648,10 @@
 
     <!-- Education Section -->
     <section id="education" class="education-section">
-        <h2 class="section-title">Academic Journey</h2>
-        <p class="section-subtitle">My educational milestones and achievements</p>
-
+        <div class="section-header">
+            <h1>Academic Journey</h1>
+            <p>My educational milestones and achievements</p>
+        </div>
         <div class="timeline">
             <!-- BE -->
             <div class="timeline-item">
