@@ -131,12 +131,14 @@
 
   .navbar {
     padding: 1.2rem 5%;
+    margin-left: 1rem;
   }
 }
 
 @media (max-width: 576px) {
   section {
     padding: 80px 5%;
+    margin-left: 1rem;
   }
 
   .cta-title {

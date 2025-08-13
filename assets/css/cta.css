@@ -141,6 +141,7 @@
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s forwards 2.5s;
+  border-radius: 25px;
 }
 
 .button:before {
