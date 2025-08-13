@@ -738,12 +738,13 @@ body {
     padding: 4rem 5%;
   }
 }
-
 /* ================ MOBILE NAV BAR ================ */
 .mobile-nav-icons {
   display: none;
   gap: 1.2rem;
   align-items: center;
+  justify-content: space-around; /* from first snippet */
+  padding: 10px 0; /* from first snippet */
 }
 
 .mobile-nav-icon {
@@ -751,9 +752,11 @@ body {
   font-size: 1.2rem;
   transition: var(--transition);
   display: flex;
+  flex-direction: column; /* from first snippet */
   align-items: center;
   justify-content: center;
   position: relative;
+  text-decoration: none; /* from first snippet */
 }
 
 .mobile-nav-icon:hover {
@@ -773,6 +776,19 @@ body {
 
 .mobile-nav-icon:hover::after {
   width: 100%;
+}
+
+.mobile-nav-icon i {
+  font-size: 15px; /* from first snippet */
+  margin-top: 4px; /* from first snippet */
+  color: #ffffff83; /* from first snippet */
+}
+
+.icon-label {
+  font-size: 7px; /* from first snippet */
+  font-weight: bold;
+  color: #ffffff;
+  user-select: none;
 }
 
 .mobile-nav-icon .tooltip {
@@ -885,33 +901,4 @@ body {
 
 .spin {
   animation: spin 1s linear;
-}
-.mobile-nav-icons {
-  display: flex;
-  justify-content: space-around; /* or flex-start / center as needed */
-  align-items: center;
-  padding: 10px 0;
-}
-
-.mobile-nav-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: inherit; /* keep icon color */
-  font-size: 14px;
-}
-
-.mobile-nav-icon i {
-  font-size: 15px;
-  margin-top: 4px;
-  color: #ffffff83;
-}
-
-.icon-label {
-  font-size: 7px;
-  font-weight: bold;
-  color: #ffffff; /* or your preferred color */
-  user-select: none; /* optional: prevent text selection */
 }
