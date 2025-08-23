@@ -1,50 +1,82 @@
+/* ================ PROFILE PHOTO COMPONENT ================ */
+
+/* Container for the profile */
 .hero-right {
   flex: 1;
-  min-width: min(100%, 300px); /* Responsive min-width */
-  max-width: 500px;
+  min-width: clamp(300px, 100%, 500px);
   display: flex;
   justify-content: center;
-  align-items: center; /* Vertical centering */
-  padding: 1rem; /* Add breathing room */
+  align-items: center;
+  padding: 2rem;
 }
 
-.profile-animation {
-  width: min(100%, 400px); /* Responsive constraint */
-  aspect-ratio: 1/1; /* Maintain square shape */
-  display: grid;
-  place-items: center; /* Perfect centering */
-}
-
-.profile-image {
-  aspect-ratio: 1/1; /* Enforce circle */
+/* Profile card with blur background effect */
+.profile-card {
+  position: relative;
+  width: min(100%, 350px);
+  aspect-ratio: 1;
   border-radius: 50%;
-  display: flex;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    rgba(186, 66, 255, 0.8),
-    rgba(0, 225, 255, 0.525)
-  );
-  padding: 0.5rem; /* Relative padding */
-  box-shadow: 0 0 35px rgba(157, 107, 255, 0.8);
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.profile-image img {
-  width: 100%;
-  height: 100%;
+/* Blurred background effect */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--profile-image-url, url("your-image.jpg")) center/cover
+    no-repeat;
+  filter: blur(25px) brightness(0.7);
+  transform: scale(1.2); /* Expand to avoid edges */
+  z-index: 0;
+}
+
+/* Main profile image */
+.profile-card img {
+  position: relative;
+  z-index: 1;
+  width: 85%;
+  height: 85%;
   border-radius: 50%;
   object-fit: cover;
-  background: linear-gradient(
-    45deg,
-    rgba(15, 12, 41, 0.4),
-    rgba(48, 43, 99, 0.4)
-  );
-  filter: grayscale(15%) contrast(110%);
+  object-position: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-.profile-image:hover {
+/* Hover effect for the profile image */
+.profile-card:hover img {
   transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(157, 107, 255, 0.8);
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Tablets and smaller devices */
+@media (max-width: 768px) {
+  .hero-right {
+    min-width: 250px;
+    padding: 1.5rem;
+  }
+
+  .profile-card {
+    width: min(100%, 280px);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+  .hero-right {
+    min-width: 200px;
+    padding: 1rem;
+  }
+
+  .profile-card {
+    width: min(100%, 220px);
+  }
 }

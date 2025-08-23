@@ -1,6 +1,6 @@
-/* Internship Section */
+/* ================ INTERNSHIP SECTION ================ */
 .internship-section {
-  padding: 120px 10%;
+  padding: var(--section-spacing, 120px) 10%;
   position: relative;
   z-index: 2;
 }
@@ -12,84 +12,7 @@
   margin-top: 40px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .internship-section {
-    padding: 100px 7%;
-  }
-}
-
-@media (max-width: 992px) {
-  .internship-section {
-    padding: 90px 5%;
-  }
-
-  .internship-container {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .internship-container {
-    grid-template-columns: 1fr;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .internship-card {
-    padding: 35px;
-  }
-}
-
-@media (max-width: 576px) {
-  .internship-section {
-    padding: 80px 5%;
-  }
-
-  .internship-card {
-    padding: 25px 20px;
-  }
-
-  .internship-role {
-    font-size: 1.4rem;
-  }
-
-  .internship-company {
-    font-size: 1.1rem;
-  }
-
-  .internship-description,
-  .project-highlight li {
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .tech-stack {
-    gap: 8px;
-  }
-
-  .tech-item {
-    font-size: 0.8rem;
-    padding: 4px 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .internship-role {
-    font-size: 1.3rem;
-  }
-
-  .internship-duration {
-    font-size: 0.85rem;
-  }
-
-  .project-highlight h4 {
-    font-size: 1.1rem;
-  }
-}
-
-/* Card styles */
+/* Internship card styles */
 .internship-card {
   background: rgba(26, 26, 46, 0.6);
   backdrop-filter: blur(10px);
@@ -169,36 +92,86 @@
 
 .tech-item {
   background: rgba(102, 252, 241, 0.1);
-  color: #38bdf8;
+  color: var(--secondary);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Large desktops */
+@media (max-width: 1200px) {
+  .internship-section {
+    padding: 100px 7%;
   }
 }
 
-.animate-in {
-  animation: fadeIn 0.8s ease forwards;
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+  .internship-section {
+    padding: 90px 5%;
+  }
+
+  .internship-container {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
 
-.delay-1 {
-  animation-delay: 0.2s;
+/* Mobile devices */
+@media (max-width: 768px) {
+  .internship-container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .internship-card {
+    padding: 35px;
+  }
 }
 
-.delay-2 {
-  animation-delay: 0.4s;
+/* Small mobile devices */
+@media (max-width: 576px) {
+  .internship-section {
+    padding: 80px 5%;
+  }
+
+  .internship-card {
+    padding: 25px 20px;
+  }
+
+  .internship-role {
+    font-size: 1.4rem;
+  }
+
+  .internship-company {
+    font-size: 1.1rem;
+  }
+
+  .internship-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tech-stack {
+    gap: 8px;
+  }
+
+  .tech-item {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
 }
 
-.delay-3 {
-  animation-delay: 0.6s;
+/* Extra small devices */
+@media (max-width: 400px) {
+  .internship-role {
+    font-size: 1.3rem;
+  }
+
+  .internship-duration {
+    font-size: 0.85rem;
+  }
 }

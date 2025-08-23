@@ -1,4 +1,6 @@
-/* Container that holds buttons */
+/* ================ RESUME BUTTONS ================ */
+
+/* Container for call-to-action buttons */
 .cta-buttons {
   display: flex;
   justify-content: center;
@@ -9,22 +11,14 @@
   padding: 0 20px;
 }
 
-/* Responsive stacking on mobile */
-@media (max-width: 600px) {
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Uniform Button Style */
+/* Uniform button style */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding: 16px 40px;
-  min-width: 220px; /* <- Prevents wrapping */
+  min-width: 220px;
   border: none;
   border-radius: 14px;
   font-weight: 600;
@@ -35,16 +29,42 @@
   box-shadow: 0 0 12px rgba(142, 45, 226, 0.6);
   transition: all 0.3s ease;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 16px rgba(142, 45, 226, 0.8);
-  background: linear-gradient(135deg, #a044ff, #6a00ff);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
 /* Icon inside button */
 .btn i {
   font-size: 1.1rem;
-  display: inline-block;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Mobile devices */
+@media (max-width: 600px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    min-width: auto;
+    padding: 14px 30px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 400px) {
+  .btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
 }

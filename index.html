@@ -20,13 +20,19 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- CSS Files -->
     <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/hero.css">
     <link rel="stylesheet" href="./assets/css/about.css">
     <link rel="stylesheet" href="./assets/css/skills.css">
     <link rel="stylesheet" href="./assets/css/education.css">
@@ -46,8 +52,8 @@
     <div id="particles-js"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#" class="logo">
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
             <div class="logo-icon">
                 <img src="./assets/img/logo.png" alt="" class="logopng">
             </div>
@@ -64,26 +70,27 @@
                 <i class="fas fa-code"></i>
                 <span class="icon-label">Skills</span>
             </a>
-            <a href="#education" class="mobile-nav-icon">
-                <i class="fas fa-graduation-cap"></i>
-                <span class="icon-label">Education</span>
+            <a href="#projects" class="mobile-nav-icon">
+                <i class="fas fa-laptop"></i>
+                <span class="icon-label">Projects</span>
             </a>
             <a href="#internships" class="mobile-nav-icon">
                 <i class="fas fa-briefcase"></i>
                 <span class="icon-label">Experience</span>
             </a>
-            <a href="#projects" class="mobile-nav-icon">
-                <i class="fas fa-laptop"></i>
-                <span class="icon-label">Projects</span>
+
+            <a href="#education" class="mobile-nav-icon">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="icon-label">Education</span>
             </a>
         </div>
 
         <div class="nav-links" id="navLinks">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="./components/project.html">Projects</a>
+            <a href="./components/experience.html">Experience</a>
             <a href="#education">Education</a>
-            <a href="#internships">Experience</a>
-            <a href="#projects">Projects</a>
         </div>
         <button class="contact-button" onclick="window.location.href='./components/contact.html'">
             <i class="fas fa-phone"></i>
@@ -93,43 +100,44 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content-wrapper">
-            <div class="hero-left">
-                <h3 class="hero-subtitle">Hi, I'm</h3>
-                <h1 class="hero-title">Vedant Raut</h1>
-                <p class="hero-text">
-                    A passionate Full-Stack Developer specializing in creating efficient, scalable applications
-                    with modern technologies. I bridge the gap between design and functionality to deliver
-                    exceptional user experiences.
-                </p>
-                <div class="cta-buttons">
-                    <a href="./components/project.html" class="btn btn-primary">
-                        <i class="fas fa-laptop-code"></i> View My Work
-                    </a>
-                    <a href="https://drive.google.com/file/d/1reJtriUiWjoL_spU8D-d1SacQ0DWK7Cd/view?usp=drive_link"
-                        download class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                </div>
-            </div>
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero">
+                <div class="hero-content-wrapper">
+                    <div class="hero-left">
+                        <h3 class="hero-subtitle">Hi, I'm</h3>
+                        <h1 class="hero-title">Vedant Raut</span></h1>
 
-            <div class="hero-right">
-                <div class="profile-animation">
-                    <div class="spinner-container">
-                        <div class="spinner1">
-                            <div class="profile-image">
-                                <img src="./assets/img/profile-image.png" alt="Profile Image">
+                        <p class="hero-text">
+                            <span id="changing-role"></span><br>
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="./components/project.html" class="btn btn-primary">
+                                <i class="fas fa-laptop-code"></i>My Work
+                            </a>
+                            <a href="https://drive.google.com/file/d/1reJtriUiWjoL_spU8D-d1SacQ0DWK7Cd/view?usp=drive_link"
+                                download class="btn btn-primary">
+                                <i class="fas fa-download"></i> Get Resume
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="profile-animation">
+                            <div class="spinner-container">
+                                <div class="spinner1">
+                                    <div class="profile-image">
+                                        <img src="./assets/img/VR.png" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     </section>
+
 
     <!-- About Section -->
     <section id="about">
@@ -140,7 +148,9 @@
 
         <div class="about-content">
             <div class="about-image">
-                <img src="./assets/img/about-img.png" alt="Vedant Raut">
+                <!-- <img src="./assets/img/profile-image.png" alt="Vedant Raut"> -->
+                <img src="./assets/img/VSR.png" alt="Vedant Raut">
+
             </div>
             <div class="about-text">
                 <h3>Aspiring Software Engineer | Java & Full-Stack Developer </h3>
@@ -839,128 +849,8 @@
         </div>
     </footer>
     <script src="./assets/js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            const slider = document.querySelector('.skills-slider');
-            const indicatorDots = document.querySelectorAll('.indicator-dot');
-            const categories = ['languages', 'frontend', 'backend', 'databases', 'tools'];
+    <script src="./assets/js/heroscript.js"></script>
 
-            // Set active category
-            function setActiveCategory(index) {
-                // Remove active class from all buttons
-                categoryBtns.forEach(btn => btn.classList.remove('active'));
-                indicatorDots.forEach(dot => dot.classList.remove('active'));
-
-                // Add active class to clicked button
-                categoryBtns[index].classList.add('active');
-                indicatorDots[index].classList.add('active');
-
-                // Move slider
-                slider.style.transform = `translateX(-${index * 100}%)`;
-            }
-
-            // Add click event to category buttons
-            categoryBtns.forEach((btn, index) => {
-                btn.addEventListener('click', () => {
-                    setActiveCategory(index);
-                });
-            });
-
-            // Add click event to indicator dots
-            indicatorDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    setActiveCategory(index);
-                });
-            });
-
-            // Add hover effects to skill items
-            const skillItems = document.querySelectorAll('.skill-item');
-
-            skillItems.forEach(item => {
-                item.addEventListener('mouseenter', function () {
-                    this.style.transform = 'scale(1.05) translateY(-5px)';
-                    this.style.boxShadow = '0 0 15px rgba(56, 189, 248, 0.5)';
-                });
-
-                item.addEventListener('mouseleave', function () {
-                    this.style.transform = 'scale(1) translateY(0)';
-                    this.style.boxShadow = 'none';
-                });
-            });
-
-            // Auto-rotate categories every 8 seconds
-            let currentIndex = 0;
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % categories.length;
-                setActiveCategory(currentIndex);
-            }, 8000);
-
-            // Adjust container height based on content
-            function adjustContainerHeight() {
-                const container = document.querySelector('.skills-container');
-                const categories = document.querySelectorAll('.skill-category');
-                let maxHeight = 0;
-
-                // Temporarily show all categories to measure
-                slider.style.transform = 'translateX(0)';
-
-                categories.forEach(category => {
-                    category.style.display = 'block';
-                    if (category.offsetHeight > maxHeight) {
-                        maxHeight = category.offsetHeight;
-                    }
-                });
-
-                // Restore current view
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Set min-height to ensure enough space
-                container.style.minHeight = `${maxHeight + 40}px`;
-            }
-
-            // Adjust on load and resize
-            window.addEventListener('load', adjustContainerHeight);
-            window.addEventListener('resize', adjustContainerHeight);
-        });
-    </script>
-    <script>
-        document.addEventListener("click", function (e) {
-            const link = e.target.closest(".project-link[title='Live Demo']");
-            if (link) {
-                const href = link.getAttribute("href");
-                if (!href || href.trim() === "#") {
-                    e.preventDefault(); // stop default # jump
-                    window.location.href = "components/notfound.html";
-                }
-            }
-        });
-    </script>
-    <script>
-        function spinGearAndRedirect() {
-            const gear = document.getElementById('gear-icon');
-
-            // Add spinning animation
-            gear.style.transition = 'transform 0.8s ease';
-            gear.style.transform = 'rotate(360deg)';
-
-            // Wait for animation to finish before redirect
-            setTimeout(() => {
-                window.location.href = './components/project.html';
-            }, 800);
-        }
-    </script>
-    <script>
-        function spinGearAndRedirectExperience() {
-            const gear = document.getElementById('gear-icon-experience');
-            gear.classList.add('spin');  // Add spinning class (make sure CSS for .spin exists)
-
-            // After animation, redirect (e.g., to experience page or section)
-            setTimeout(() => {
-                window.location.href = './components/experience.html'; // Change URL as needed
-            }, 1000); // 1 second delay for the spin effect
-        }
-    </script>
 </body>
 
 </html>

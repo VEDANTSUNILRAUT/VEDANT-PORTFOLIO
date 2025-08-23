@@ -1,6 +1,6 @@
-/* Education Section */
+/* ================ EDUCATION SECTION ================ */
 .education-section {
-  padding: 120px 10%;
+  padding: var(--section-spacing, 120px) 10%;
   position: relative;
   z-index: 2;
 }
@@ -12,8 +12,6 @@
 }
 
 .timeline::after {
-  border: 2px solid var(--primary);
-  z-index: -1;
   content: "";
   position: absolute;
   width: 6px;
@@ -23,6 +21,7 @@
   left: 50%;
   margin-left: -3px;
   border-radius: 3px;
+  z-index: -1;
 }
 
 .timeline-item {
@@ -151,19 +150,18 @@
 
 .achievement {
   background: rgba(102, 252, 241, 0.1);
-  color: #38bdf8;
+  color: var(--secondary);
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
 }
 
-/* Animation for icons */
+/* ================ ANIMATIONS ================ */
 @keyframes float {
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
@@ -173,7 +171,9 @@
   animation: float 1.2s ease-in-out infinite;
 }
 
-/* Enhanced Responsive Design */
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Tablets and smaller desktops */
 @media (max-width: 992px) {
   .timeline::after {
     left: 31px;
@@ -192,11 +192,6 @@
     right: auto;
   }
 
-  .section-title {
-    font-size: 2.4rem;
-  }
-
-  /* Font size adjustments for tablets */
   .education-title {
     font-size: 1.4rem;
   }
@@ -208,44 +203,32 @@
   .education-grade {
     font-size: 1.4rem;
   }
-
-  .education-description {
-    font-size: 0.95rem;
-  }
 }
 
+/* Mobile devices */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-  }
-
   .timeline::after {
-    left: 25px; /* Adjusted position */
+    left: 25px;
   }
 
   .timeline-item {
-    padding-left: 60px; /* Reduced padding */
+    padding-left: 60px;
     padding-right: 20px;
-    padding-bottom: 30px; /* Added bottom padding for spacing */
+    padding-bottom: 30px;
   }
 
   .timeline-content {
-    padding: 20px; /* Reduced padding */
+    padding: 20px;
   }
 
   .timeline-item:nth-child(even) .timeline-icon,
   .timeline-item:nth-child(odd) .timeline-icon {
-    left: 10px; /* Adjusted position */
-    width: 40px; /* Smaller icon */
+    left: 10px;
+    width: 40px;
     height: 40px;
-    font-size: 1.3rem; /* Smaller icon size */
+    font-size: 1.3rem;
   }
 
-  /* Font size adjustments */
   .education-title {
     font-size: 1.3rem;
     margin-bottom: 3px;
@@ -276,29 +259,30 @@
     font-size: 0.85rem;
     height: 1.8rem;
     padding: 4px 12px;
-    width: auto; /* Better fit for content */
+    width: auto;
   }
 }
 
+/* Small mobile devices */
 @media (max-width: 576px) {
   .education-section {
     padding: 80px 5%;
   }
 
   .timeline::after {
-    left: 20px; /* Further adjusted position */
-    width: 4px; /* Thinner line */
+    left: 20px;
+    width: 4px;
   }
 
   .timeline-item {
-    padding-left: 45px; /* Reduced padding */
+    padding-left: 45px;
     padding-right: 15px;
     padding-bottom: 25px;
   }
 
   .timeline-content {
     padding: 18px;
-    border-radius: 16px; /* Slightly smaller radius */
+    border-radius: 16px;
   }
 
   .timeline-item:nth-child(even) .timeline-icon,
@@ -321,7 +305,6 @@
     width: auto;
   }
 
-  /* Font size adjustments for mobile */
   .education-title {
     font-size: 1.2rem;
   }
@@ -343,7 +326,7 @@
     font-size: 0.75rem;
   }
 
-  /* Hover effects disabled for mobile */
+  /* Disable hover effects on mobile */
   .timeline-content:hover {
     transform: none;
     border-color: rgba(157, 78, 221, 0.2);
@@ -351,7 +334,7 @@
   }
 }
 
-/* Extra small devices (phones under 400px) */
+/* Extra small devices */
 @media (max-width: 400px) {
   .timeline-item {
     padding-left: 40px;
@@ -362,7 +345,6 @@
     padding: 15px;
   }
 
-  /* Slightly smaller font sizes */
   .education-title {
     font-size: 1.15rem;
   }

@@ -1,4 +1,4 @@
-/* Footer */
+/* ================ FOOTER SECTION ================ */
 .footer {
   background: var(--bg-darker);
   padding: 80px 10% 40px;
@@ -12,6 +12,7 @@
   gap: 40px;
   margin-bottom: 60px;
 }
+
 .footer-column {
   display: flex;
   flex-direction: column;
@@ -101,80 +102,11 @@
 .copyright {
   text-align: center;
   padding-top: 30px;
-  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
   color: var(--text-gray);
   font-size: 0.9rem;
 }
-/* Responsive */
-@media (max-width: 992px) {
-  .section-title {
-    font-size: 2.4rem;
-  }
 
-  .nav-links {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .navbar {
-    padding: 1.2rem 5%;
-    margin-left: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  section {
-    padding: 80px 5%;
-    margin-left: 1rem;
-  }
-
-  .cta-title {
-    font-size: 2.2rem;
-  }
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-in {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.delay-1 {
-  animation-delay: 0.2s;
-}
-
-.delay-2 {
-  animation-delay: 0.4s;
-}
-
-.delay-3 {
-  animation-delay: 0.6s;
-}
-/* Back to Top Button */
+/* ================ BACK TO TOP BUTTON ================ */
 #backToTopBtn {
   position: fixed;
   bottom: 20px;
@@ -203,14 +135,75 @@
   box-shadow: 0 0 25px rgba(102, 252, 241, 0.6);
 }
 
+/* ================ ANIMATIONS ================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 5% 30px;
+  }
+
+  .footer-content {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    border-radius: 10px;
+    padding: 50px 5% 25px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-column h3 {
+    font-size: 1.3rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
 }

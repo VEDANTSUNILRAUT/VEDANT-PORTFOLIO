@@ -1,3 +1,4 @@
+/* ================ CTA BANNER SECTION ================ */
 .banner {
   position: relative;
   width: 100%;
@@ -7,7 +8,6 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  /* background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%); */
 }
 
 .content {
@@ -18,12 +18,11 @@
   padding: 20px;
 }
 
+/* Text elements with glow effects */
 .cta-text {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  /* margin-bottom: 40px; */
-  text-shadow: 0 0 10px rgba(0, 157, 255, 0.5);
   position: relative;
 }
 
@@ -33,7 +32,7 @@
   line-height: 1.3;
   opacity: 0;
   transform: translateY(30px);
-  animation: slideUp 1s forwards;
+  animation: fadeUp 1s forwards;
   text-shadow: 0 0 5px #00a2ff, 0 0 10px #0066ff, 0 0 15px #0033ff,
     0 0 20px #0000ff;
 }
@@ -53,29 +52,55 @@
   color: #fff;
 }
 
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Button styling with hover effects */
+.button {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  padding: 18px 50px;
+  margin-top: 30px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00ccff;
+  background: rgba(0, 30, 60, 0.3);
+  border: 2px solid #00ccff;
+  border-radius: 25px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards 2.5s;
 }
 
-.glow-pulse {
-  animation: glowPulse 2.5s infinite alternate;
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 204, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
 }
 
-@keyframes glowPulse {
-  from {
-    text-shadow: 0 0 5px #00a2ff, 0 0 10px #0066ff, 0 0 15px #0033ff,
-      0 0 20px #0000ff;
-  }
-
-  to {
-    text-shadow: 0 0 10px #00a2ff, 0 0 20px #0066ff, 0 0 30px #0033ff,
-      0 0 40px #0000ff;
-  }
+.button:hover::before {
+  left: 100%;
 }
 
+.button:hover {
+  background: rgba(0, 60, 120, 0.5);
+  box-shadow: 0 0 20px #00ccff;
+}
+
+/* Background effects */
 .overlay {
   position: absolute;
   top: 0;
@@ -111,64 +136,7 @@
   opacity: 0.3;
 }
 
-@keyframes flicker {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 0 100%;
-  }
-}
-
-.button {
-  position: relative;
-  z-index: 5;
-  display: inline-block;
-  padding: 18px 50px;
-  margin-top: 30px;
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #00ccff;
-  background: rgba(0, 30, 60, 0.3);
-  border: 2px solid #00ccff;
-  border-radius: 0;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s forwards 2.5s;
-  border-radius: 25px;
-}
-
-.button:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 204, 255, 0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.button:hover:before {
-  left: 100%;
-}
-
-.button:hover {
-  background: rgba(0, 60, 120, 0.5);
-  box-shadow: 0 0 20px #00ccff;
-}
-
+/* ================ ANIMATIONS ================ */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -176,7 +144,34 @@
   }
 }
 
-/* Responsive Design */
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 5px #00a2ff, 0 0 10px #0066ff, 0 0 15px #0033ff,
+      0 0 20px #0000ff;
+  }
+  to {
+    text-shadow: 0 0 10px #00a2ff, 0 0 20px #0066ff, 0 0 30px #0033ff,
+      0 0 40px #0000ff;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Glow effect for text */
+.glow-pulse {
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+
+/* Tablets and smaller desktops */
 @media (max-width: 992px) {
   .line {
     font-size: 3.5rem;
@@ -188,6 +183,7 @@
   }
 }
 
+/* Mobile devices */
 @media (max-width: 768px) {
   .line {
     font-size: 2.5rem;
@@ -199,6 +195,7 @@
   }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
   .line {
     font-size: 1.8rem;

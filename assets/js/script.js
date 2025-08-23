@@ -234,6 +234,136 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".project-card").forEach((card, index) => {
     card.style.animationDelay = `${index * 0.1}s`;
   });
+
+  // Skills slider functionality
+  const categoryBtns = document.querySelectorAll(".category-btn");
+  const slider = document.querySelector(".skills-slider");
+  const indicatorDots = document.querySelectorAll(".indicator-dot");
+  const categories = ["languages", "frontend", "backend", "databases", "tools"];
+  let currentCategoryIndex = 0;
+
+  // Set active category
+  function setActiveCategory(index) {
+    // Remove active class from all buttons
+    categoryBtns.forEach((btn) => btn.classList.remove("active"));
+    indicatorDots.forEach((dot) => dot.classList.remove("active"));
+
+    // Add active class to clicked button
+    categoryBtns[index].classList.add("active");
+    indicatorDots[index].classList.add("active");
+
+    // Move slider
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  // Add click event to category buttons
+  categoryBtns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      setActiveCategory(index);
+    });
+  });
+
+  // Add click event to indicator dots
+  indicatorDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      setActiveCategory(index);
+    });
+  });
+
+  // Add hover effects to skill items
+  const skillItems = document.querySelectorAll(".skill-item");
+
+  skillItems.forEach((item) => {
+    item.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.05) translateY(-5px)";
+      this.style.boxShadow = "0 0 15px rgba(56, 189, 248, 0.5)";
+    });
+
+    item.addEventListener("mouseleave", function () {
+      this.style.transform = "scale(1) translateY(0)";
+      this.style.boxShadow = "none";
+    });
+  });
+
+  // Auto-rotate categories every 8 seconds
+  setInterval(() => {
+    currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+    setActiveCategory(currentCategoryIndex);
+  }, 8000);
+
+  // Adjust container height based on content
+  function adjustContainerHeight() {
+    const container = document.querySelector(".skills-container");
+    const categories = document.querySelectorAll(".skill-category");
+    let maxHeight = 0;
+
+    // Temporarily show all categories to measure
+    slider.style.transform = "translateX(0)";
+
+    categories.forEach((category) => {
+      category.style.display = "block";
+      if (category.offsetHeight > maxHeight) {
+        maxHeight = category.offsetHeight;
+      }
+    });
+
+    // Restore current view
+    slider.style.transform = `translateX(-${currentCategoryIndex * 100}%)`;
+
+    // Set min-height to ensure enough space
+    container.style.minHeight = `${maxHeight + 40}px`;
+  }
+
+  // Adjust on load and resize
+  window.addEventListener("load", adjustContainerHeight);
+  window.addEventListener("resize", adjustContainerHeight);
+
+  // Project link handling
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest(".project-link[title='Live Demo']");
+    if (link) {
+      const href = link.getAttribute("href");
+      if (!href || href.trim() === "#") {
+        e.preventDefault(); // stop default # jump
+        window.location.href = "components/notfound.html";
+      }
+    }
+  });
+
+  // Typing effect
+  const roles = ["Full-Stack Developer", "Java Developer", "Web Developer"];
+  let roleIndex = 0;
+  let textIndex = 0;
+  let currentText = "";
+  let isDeleting = false;
+  const speed = 100; // typing speed
+  const eraseSpeed = 60; // erasing speed
+  const delayBetweenRoles = 1500; // pause after typing a role
+
+  function typeEffect() {
+    const role = roles[roleIndex];
+    if (isDeleting) {
+      currentText = role.substring(0, textIndex--);
+    } else {
+      currentText = role.substring(0, textIndex++);
+    }
+
+    document.getElementById("changing-role").textContent = currentText;
+
+    if (!isDeleting && textIndex === role.length + 1) {
+      isDeleting = true;
+      setTimeout(typeEffect, delayBetweenRoles);
+    } else if (isDeleting && textIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeEffect, 300);
+    } else {
+      setTimeout(typeEffect, isDeleting ? eraseSpeed : speed);
+    }
+  }
+
+  // Start typing effect
+  typeEffect();
 });
 
 // Back to Top Button
@@ -253,77 +383,40 @@ document.getElementById("backToTopBtn")?.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// photo animation
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Add dynamic glow effect to spinner on mouse move
-//   const spinner = document.querySelector(".spinner");
-//   const container = document.querySelector(".spinner-container");
+// Gear spinning functions
+function spinGearAndRedirect() {
+  const gear = document.getElementById("gear-icon");
 
-//   container.addEventListener("mousemove", (e) => {
-//     const rect = container.getBoundingClientRect();
-//     const x = e.clientX - rect.left;
-//     const y = e.clientY - rect.top;
+  // Add spinning animation
+  gear.style.transition = "transform 0.8s ease";
+  gear.style.transform = "rotate(360deg)";
 
-//     const centerX = rect.width / 2;
-//     const centerY = rect.height / 2;
-
-//     const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
-
-//     spinner.style.background = `conic-gradient(
-//                     from ${angle}deg at 50% 50%,
-//                     rgba(186, 66, 255, 0.9) 0%,
-//                     rgba(0, 225, 255, 0.9) 50%,
-//                     rgba(186, 66, 255, 0.9) 100%
-//                 )`;
-//   });
-
-//   container.addEventListener("mouseleave", () => {
-//     spinner.style.background = `conic-gradient(
-//                     from 0deg at 50% 50%,
-//                     rgba(186, 66, 255, 0.8) 0%,
-//                     rgba(0, 225, 255, 0.8) 50%,
-//                     rgba(186, 66, 255, 0.8) 100%
-//                 )`;
-//   });
-
-//   // Add random floating to icons
-//   const icons = document.querySelectorAll(".icon");
-
-//   setInterval(() => {
-//     icons.forEach((icon) => {
-//       const randomX = Math.random() * 20 - 10;
-//       const randomY = Math.random() * 20 - 10;
-//       icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
-//     });
-//   }, 3000);
-// });
-// ===== THEME TOGGLE FUNCTIONALITY =====
-const themeToggle = document.getElementById("theme-toggle");
-const htmlElement = document.documentElement;
-
-// Check for saved theme preference or respect OS preference
-const currentTheme =
-  localStorage.getItem("theme") ||
-  (window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark");
-htmlElement.setAttribute("data-theme", currentTheme);
-
-// Update icon based on current theme
-if (currentTheme === "light") {
-  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  // Wait for animation to finish before redirect
+  setTimeout(() => {
+    window.location.href = "./components/project.html";
+  }, 800);
 }
 
-themeToggle.addEventListener("click", () => {
-  const currentTheme = htmlElement.getAttribute("data-theme");
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
+function spinGearAndRedirectExperience() {
+  const gear = document.getElementById("gear-icon-experience");
+  gear.classList.add("spin"); // Add spinning class
 
-  htmlElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
+  // After animation, redirect
+  setTimeout(() => {
+    window.location.href = "./components/experience.html";
+  }, 1000); // 1 second delay for the spin effect
+}
 
-  // Update icon
-  themeToggle.innerHTML =
-    newTheme === "dark"
-      ? '<i class="fas fa-moon"></i>'
-      : '<i class="fas fa-sun"></i>';
-});
+// Add CSS for spin class if not already in your CSS
+const style = document.createElement("style");
+style.textContent = `
+  .spin {
+    animation: spin 1s linear;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
