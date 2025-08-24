@@ -16,9 +16,9 @@
         :root {
             --bg-dark: #0f0f0f;
             --bg-darker: #0a0a0a;
-            --primary: #9d4edd;
+            --primary: #8917e7;
             --primary-dark: #7c3cbb;
-            --secondary: #66fcf1;
+            --secondary: #a466fc;
             --accent: #ff6b6b;
             --text-light: #e0e0e0;
             --text-lighter: #f5f5f5;
@@ -42,6 +42,8 @@
             overflow-x: hidden;
             position: relative;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Animated background elements */
@@ -78,6 +80,7 @@
         /* Header styles */
         header {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             padding: 2rem 1rem 1rem;
             display: flex;
@@ -107,57 +110,10 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo-link {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--bg-dark);
-        }
-
-        /* Navigation links */
+        /* Navigation */
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
         }
 
         .nav-links a {
@@ -169,38 +125,46 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
             transition: var(--transition);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .home-btn i {
+            font-size: 1.1rem;
         }
 
-        .nav-links a.active {
-            color: var(--primary);
+        .home-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.6);
+        }
+
+        .home-btn:active {
+            transform: scale(0.98);
         }
 
         /* Page title */
         .page-title {
             text-align: center;
-            margin: 8rem 0 3rem;
+            margin: 4rem 0 3rem;
             padding: 0 20px;
+            width: 100%;
         }
 
         .page-title h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -228,11 +192,13 @@
             color: var(--text-gray);
             font-size: 1.1rem;
             line-height: 1.6;
+            padding: 0 1rem;
         }
 
         /* Contact container */
         .contact-container {
             max-width: 1200px;
+            width: 100%;
             margin: 2rem auto;
             padding: 0 1.5rem;
             display: grid;
@@ -264,7 +230,7 @@
 
         .form-title {
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--text-lighter);
         }
 
@@ -315,6 +281,8 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            width: 100%;
+            justify-content: center;
         }
 
         .submit-btn:hover {
@@ -358,6 +326,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .info-title {
@@ -386,6 +355,7 @@
         .info-list i {
             color: var(--primary);
             margin-top: 0.3rem;
+            flex-shrink: 0;
         }
 
         /* Social links */
@@ -393,6 +363,7 @@
             display: flex;
             gap: 1.2rem;
             margin-top: 1.5rem;
+            justify-content: center;
         }
 
         .social-links a {
@@ -444,8 +415,9 @@
         /* Footer */
         footer {
             max-width: 1200px;
+            width: 100%;
             margin: 4rem auto 0;
-            padding: 2rem 0;
+            padding: 2rem 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
             color: var(--text-gray);
@@ -473,28 +445,59 @@
         }
 
         /* Responsive design */
-        @media (max-width: 900px) {
+        @media (max-width: 992px) {
             .contact-container {
-                grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
             .contact-form {
                 padding: 2rem;
             }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 600px;
+            }
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1.2rem 5%;
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
             }
 
-            .page-title h1 {
-                font-size: 2.8rem;
+            .logo {
+                justify-content: center;
             }
 
             .nav-links {
-                gap: 1.5rem;
+                justify-content: center;
+            }
+
+            .page-title {
+                margin: 2rem 0;
+            }
+
+            .page-title p {
+                font-size: 1rem;
+            }
+
+            .info-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .info-icon {
+                margin: 0 auto;
             }
         }
 
@@ -511,49 +514,103 @@
                 padding: 1.5rem;
             }
 
-            .info-header {
+            .info-list li {
                 flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
                 text-align: center;
             }
 
-            .info-icon {
-                margin: 0 auto;
+            .info-title {
+                font-size: 1.3rem;
+                text-align: center;
             }
 
-            .nav-links {
-                gap: 1rem;
+            .submit-btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .home-btn {
+                padding: 0.7rem 1.2rem;
                 font-size: 0.9rem;
             }
         }
 
-        .home-btn {
-            display: inline-flex;
+        @media (max-width: 400px) {
+            .contact-form {
+                padding: 1.2rem;
+            }
+
+            .info-card {
+                padding: 1.2rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-control {
+                padding: 0.7rem 1rem;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Main content wrapper for proper centering */
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Logo styling with gradient text effect */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
-            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .home-btn i {
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bg-dark);
         }
 
-        .home-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(157, 78, 221, 0.6);
-        }
-
-        .home-btn:active {
-            transform: scale(0.98);
+        .logopng {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -567,167 +624,177 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <i class="fas fa-code"></i>
-            <div>VED's <span>Portfolio</span></div>
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="../assets/img/logo.png" alt="" class="logopng">
+                </div>
+                <!-- VEDANT RAUT -->
+            </a>
+
         </div>
         <nav class="nav-links">
             <a href="../index.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
-
         </nav>
     </header>
-    <!-- Page Title -->
-    <div class="page-title">
-        <h1>Contact Me</h1>
-        <p>Have a project in mind? Want to collaborate? Or just want to say hello? Feel free to reach out to me using
-            the contact form or through any of the contact details below.</p>
-    </div>
 
-    <!-- Contact Section -->
-    <div class="contact-container">
-        <div class="contact-form">
-            <h2 class="form-title">Send Me a Message</h2>
-            <p class="info-content">I'll get back to you as soon as possible. All messages are directly sent to my
-                email.</p>
-
-            <form id="contact-form" action="https://formspree.io/f/xyzjbypg" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-control" placeholder="What's this about?"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Type your message here..."
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-
-                <div id="success-message" class="form-message success-message">
-                    <i class="fas fa-check-circle"></i> Your message has been sent successfully!
-                </div>
-
-                <div id="error-message" class="form-message error-message">
-                    <i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try again.
-                </div>
-            </form>
+    <!-- Main Content -->
+    <main class="main-wrapper">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Contact Me</h1>
+            <p>Have a project in mind? Want to collaborate? Or just want to say hello? Feel free to reach out to me
+                using
+                the contact form or through any of the contact details below.</p>
         </div>
 
-        <div class="contact-info">
-            <div class="info-card">
-                <div class="info-header">
-                    <div class="info-icon">
-                        <i class="fas fa-address-card"></i>
+        <!-- Contact Section -->
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2 class="form-title">Send Me a Message</h2>
+                <p class="info-content">I'll get back to you as soon as possible. All messages are directly sent to my
+                    email.</p>
+
+                <form id="contact-form" action="https://formspree.io/f/xyzjbypg" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name"
+                            required>
                     </div>
-                    <h3 class="info-title">Contact Information</h3>
-                </div>
-                <ul class="info-list">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Amravati, Maharashtra, India</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>vedantsunilraut@gmail.com/p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 9022588975</p>
-                        </div>
-                    </li>
-                </ul>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control"
+                            placeholder="What's this about?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control"
+                            placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+
+                    <div id="success-message" class="form-message success-message">
+                        <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+                    </div>
+
+                    <div id="error-message" class="form-message error-message">
+                        <i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try
+                        again.
+                    </div>
+                </form>
             </div>
 
-            <div class="info-card">
-                <div class="info-header">
-                    <div class="info-icon">
-                        <i class="fas fa-share-alt"></i>
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-address-card"></i>
+                        </div>
+                        <h3 class="info-title">Contact Information</h3>
                     </div>
-                    <h3 class="info-title">Social Media</h3>
+                    <ul class="info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Amravati, Maharashtra, India</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>vedantsunilraut@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9022588975</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <p class="info-content">Connect with me on these platforms:</p>
-                <div class="social-links">
-                    <a href="https://github.com/VEDANTSUNILRAUT" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/vedantsunilraut" class="social-link"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/vedantsunilraut" class="social-link"><i
-                            class="fab fa-instagram"></i></a>
 
+                <div class="info-card">
+                    <div class="info-header">
+                        <div class="info-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3 class="info-title">Social Media</h3>
+                    </div>
+                    <p class="info-content">Connect with me on these platforms:</p>
+                    <div class="social-links">
+                        <a href="https://github.com/VEDANTSUNILRAUT" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/vedantsunilraut" class="social-link"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/vedantsunilraut" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-
             </div>
+        </div>
+    </main>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    // Navbar scroll effect
-                    const navbar = document.querySelector(".navbar");
-                    window.addEventListener("scroll", () => {
-                        navbar?.classList.toggle("scrolled", window.scrollY > 50);
-                    });
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Vedant Raut. All rights reserved.</p>
+    </footer>
 
-                    // Form submission handling
-                    const contactForm = document.getElementById('contact-form');
-                    const successMessage = document.getElementById('success-message');
-                    const errorMessage = document.getElementById('error-message');
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Form submission handling
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
 
-                    if (contactForm) {
-                        contactForm.addEventListener('submit', async (e) => {
-                            e.preventDefault();
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
 
-                            // Hide previous messages
-                            successMessage.style.display = 'none';
-                            errorMessage.style.display = 'none';
+                    // Hide previous messages
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
 
-                            try {
-                                const formData = new FormData(contactForm);
-                                const response = await fetch(contactForm.action, {
-                                    method: 'POST',
-                                    body: formData,
-                                    headers: {
-                                        'Accept': 'application/json'
-                                    }
-                                });
-
-                                if (response.ok) {
-                                    // Show success message
-                                    successMessage.style.display = 'block';
-                                    contactForm.reset();
-                                } else {
-                                    // Show error message
-                                    errorMessage.style.display = 'block';
-                                }
-                            } catch (error) {
-                                // Show error message
-                                errorMessage.style.display = 'block';
-                                console.error('Error submitting form:', error);
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
                             }
                         });
+
+                        if (response.ok) {
+                            // Show success message
+                            successMessage.style.display = 'block';
+                            contactForm.reset();
+                        } else {
+                            // Show error message
+                            errorMessage.style.display = 'block';
+                        }
+                    } catch (error) {
+                        // Show error message
+                        errorMessage.style.display = 'block';
+                        console.error('Error submitting form:', error);
                     }
                 });
-            </script>
+            }
+        });
+    </script>
 </body>
 
 </html>

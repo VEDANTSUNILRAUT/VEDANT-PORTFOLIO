@@ -1,82 +1,58 @@
-/* ================ PROFILE PHOTO COMPONENT ================ */
-
-/* Container for the profile */
-.hero-right {
-  flex: 1;
-  min-width: clamp(300px, 100%, 500px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-/* Profile card with blur background effect */
-.profile-card {
+/* Profile photo with hover effects */
+.profile-photo {
+  width: 70%;
+  height: 90%;
   position: relative;
-  width: min(100%, 350px);
-  aspect-ratio: 1;
-  border-radius: 50%;
+  border-radius: 20px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
 }
 
-/* Blurred background effect */
-.profile-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--profile-image-url, url("your-image.jpg")) center/cover
-    no-repeat;
-  filter: blur(25px) brightness(0.7);
-  transform: scale(1.2); /* Expand to avoid edges */
-  z-index: 0;
-}
-
-/* Main profile image */
-.profile-card img {
-  position: relative;
-  z-index: 1;
-  width: 85%;
-  height: 85%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+.profile-photo img {
+  width: 100%;
+  display: block;
   transition: transform 0.3s ease;
 }
 
-/* Hover effect for the profile image */
-.profile-card:hover img {
-  transform: scale(1.05);
+.profile-photo:hover img {
+  transform: scale(1);
 }
 
-/* ================ RESPONSIVE DESIGN ================ */
-
-/* Tablets and smaller devices */
-@media (max-width: 768px) {
-  .hero-right {
-    min-width: 250px;
-    padding: 1.5rem;
-  }
-
-  .profile-card {
-    width: min(100%, 280px);
-  }
+/* Gradient border on hover */
+.profile-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 3px; /* border thickness */
+  background: #590992;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
 }
 
-/* Mobile devices */
-@media (max-width: 576px) {
-  .hero-right {
-    min-width: 200px;
-    padding: 1rem;
-  }
+.profile-photo:hover::after {
+  opacity: 1;
+}
 
-  .profile-card {
-    width: min(100%, 220px);
-  }
+/* Subtle background gradient */
+.profile-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(157, 78, 221, 0.05),
+    rgba(102, 252, 241, 0.05)
+  );
+  z-index: 1;
+}
+
+.profile-photo:hover {
+  transform: scale(1.03);
 }

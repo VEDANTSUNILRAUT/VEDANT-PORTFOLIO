@@ -1,9 +1,11 @@
 /* ================ FOOTER SECTION ================ */
 .footer {
-  background: var(--bg-darker);
+  background: #0a0a0a; /* Dark background */
   padding: 80px 10% 40px;
   position: relative;
   border-radius: 15px;
+  color: #ccc;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-content {
@@ -17,14 +19,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .footer-column h3 {
   font-size: 1.5rem;
   margin-bottom: 25px;
-  color: rgb(121, 82, 201);
+  color: #794ec9; /* Purple */
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 
 .footer-column h3::after {
@@ -34,18 +38,26 @@
   left: 0;
   width: 40px;
   height: 3px;
-  background: var(--primary);
+  background: #8917e7; /* Primary purple */
   border-radius: 2px;
 }
 
-.footer-about p {
-  color: var(--text-gray);
+.footer-about p,
+.footer-contact p,
+.footer-links a {
+  color: #aaa;
   line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+.footer-about p {
   margin-bottom: 20px;
 }
 
 .footer-links {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
@@ -53,25 +65,23 @@
 }
 
 .footer-links a {
-  color: var(--text-gray);
+  color: #aaa;
   text-decoration: none;
-  transition: var(--transition);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .footer-links a:hover {
-  color: var(--secondary);
+  color: #a466fc; /* Secondary purple */
   transform: translateX(5px);
 }
 
 .footer-contact p {
-  color: var(--text-gray);
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .footer-social {
@@ -84,25 +94,27 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: var(--card-bg);
+  background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-light);
+  color: #ccc;
   font-size: 1.2rem;
   text-decoration: none;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: var(--primary);
-  transform: translateY(-5px);
+  background: #8917e7;
+  transform: translateY(-5px) scale(1.1);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(137, 23, 231, 0.5);
 }
 
 .copyright {
   text-align: center;
   padding-top: 30px;
-  color: var(--text-gray);
+  color: #777;
   font-size: 0.9rem;
 }
 
@@ -112,25 +124,23 @@
   bottom: 20px;
   right: 20px;
   z-index: 100;
-  width: 35px;
-  height: 35px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--bg-dark);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #8917e7, #a466fc);
+  color: #0a0a0a;
   border: none;
   border-radius: 50%;
   font-size: 24px;
-  font-weight: bold;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
-  transition: var(--transition);
-  animation: fadeInUp 0.5s ease-out;
+  transition: all 0.3s ease;
 }
 
 #backToTopBtn:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background: linear-gradient(135deg, #a466fc, #8917e7);
   transform: translateY(-5px) scale(1.1);
   box-shadow: 0 0 25px rgba(102, 252, 241, 0.6);
 }
@@ -205,5 +215,13 @@
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+
+  .footer-contact p {
+    justify-content: center;
   }
 }
