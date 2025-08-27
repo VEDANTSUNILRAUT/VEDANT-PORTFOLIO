@@ -1,34 +1,50 @@
 /* ================ ABOUT SECTION ================ */
 
 /* Global section styling */
-section {
+.about-section-container {
   padding: var(--section-spacing, 120px) 10%;
   position: relative;
   overflow: hidden;
-  text-align: center; /* Keep headings and button centered */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  color: var(--text-gray);
+  text-align: center;
+  background: blur;
+}
+
+/* Section header */
+.about-header-wrapper {
+  margin-bottom: 3rem;
+}
+
+.about-main-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.about-subheading {
+  font-size: 1.2rem;
+  color: #6b7280;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 /* About content layout */
-.about-content {
+.about-content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem; /* Slightly more spacing for elegance */
+  gap: 2.5rem;
 }
 
 /* About text styling */
-.about-text {
-  max-width: 750px; /* Slightly wider for better reading */
-  text-align: justify; /* Justify paragraph text */
+.about-details-content {
+  max-width: 750px;
+  text-align: justify;
 }
 
 /* Heading styling */
-.about-text h3 {
-  font-size: 1.5rem; /* Increased size */
+.about-details-content h3 {
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 0.7rem;
   background: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -39,52 +55,143 @@ section {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  letter-spacing: 1px; /* Slight spacing for premium look */
+  letter-spacing: 1px;
 }
 
 /* Paragraph styling */
-.about-text p {
-  font-size: 1.1rem; /* Slightly larger and readable */
+.about-details-content p {
+  font-size: 1.1rem;
   margin-bottom: 1.8rem;
   color: var(--text-gray);
-  line-height: 1.9; /* Better readability */
+  line-height: 1.9;
   word-spacing: 0.05em;
 }
 
 /* Call-to-action buttons */
-.cta-buttons {
+.about-action-buttons {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
   margin-top: 1rem;
 }
 
+/* Button styling */
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
+}
+
+.about-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
+}
+
+/* Decorative elements */
+.about-decoration {
+  position: absolute;
+  z-index: 0;
+}
+
+.decoration-1 {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(99, 102, 241, 0.1) 100%
+  );
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 20%;
+  left: 10%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.decoration-2 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(139, 92, 246, 0.1) 100%
+  );
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  bottom: 20%;
+  right: 10%;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10px, 10px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
 /* ================ RESPONSIVE DESIGN ================ */
 
 /* Tablets and smaller devices */
 @media (max-width: 768px) {
-  section {
+  .about-section-container {
     padding: 80px 5%;
   }
 
-  .about-text h3 {
-    font-size: 1.3rem; /* Slightly smaller on mobile */
+  .about-main-heading {
+    font-size: 2rem;
   }
 
-  .about-text p {
-    font-size: 1rem; /* Comfortable reading on smaller screens */
+  .about-subheading {
+    font-size: 1.1rem;
+  }
+
+  .about-details-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-details-content p {
+    font-size: 1rem;
     line-height: 1.8;
   }
 }
 
 /* Small mobile devices */
 @media (max-width: 480px) {
-  .about-text h3 {
+  .about-main-heading {
+    font-size: 1.8rem;
+  }
+
+  .about-details-content h3 {
     font-size: 1.2rem;
   }
 
-  .about-text p {
+  .about-details-content p {
     font-size: 0.95rem;
     line-height: 1.7;
+  }
+
+  .about-action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

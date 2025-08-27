@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center; /* Center content horizontally */
   position: relative;
   overflow: hidden;
 }
@@ -96,6 +97,10 @@ body {
 
 .hero-left {
   flex: 1;
+  text-align: center; /* Center text in the left section */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all child elements */
 }
 
 .hero-right {
@@ -109,6 +114,8 @@ body {
   font-size: 2.5rem;
   color: var(--text-gray);
   margin-bottom: 10px;
+  text-align: center; /* Ensure subtitle is centered */
+  width: 100%; /* Ensure full width for proper centering */
 }
 
 .hero-title {
@@ -123,6 +130,8 @@ body {
   letter-spacing: 2px; /* more dramatic */
   text-transform: uppercase; /* movie-like */
   text-shadow: 2px 2px 8px rgba(136, 136, 136, 0.193); /* cinematic depth */
+  text-align: center; /* Center the title */
+  width: 100%; /* Ensure full width for proper centering */
 }
 
 .hero-text {
@@ -131,7 +140,8 @@ body {
   margin: 0 auto 40px;
   line-height: 1.6;
   min-height: 60px;
-  /* text-align: center; */
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure full width for proper centering */
 }
 
 #changing-role {
@@ -139,12 +149,16 @@ body {
   color: #8e2de2;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
+  display: block; /* Ensure it behaves as block for centering */
+  text-align: center; /* Center the changing role text */
 }
 
 .cta-buttons {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center; /* Center the buttons */
+  width: 100%; /* Ensure full width for proper centering */
 }
 
 .btn {
@@ -158,6 +172,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center; /* Center button content */
 }
 
 .btn-primary {
@@ -248,11 +263,21 @@ body {
 @media (max-width: 1200px) {
   .hero-container {
     flex-direction: column;
+    text-align: center; /* Center text in column layout */
   }
 
   .hero-content-wrapper {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
+  }
+
+  .hero-left {
+    order: 2; /* Move text below image on smaller screens */
+  }
+
+  .hero-right {
+    order: 1; /* Move image above text on smaller screens */
   }
 
   .cta-buttons {
@@ -266,11 +291,11 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.8rem; /* Slightly larger for better readability */
   }
 
   .hero-text {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Slightly larger for better readability */
   }
 
   .profile-animation {
@@ -281,6 +306,10 @@ body {
   .profile-image {
     width: 200px;
     height: 200px;
+  }
+
+  .hero {
+    padding: 40px 30px; /* Adjust padding for smaller screens */
   }
 }
 
@@ -293,6 +322,14 @@ body {
     font-size: 2rem;
   }
 
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -303,6 +340,7 @@ body {
     justify-content: center;
   }
 }
+
 @media (max-width: 576px) {
   .hero-section {
     padding: 60px 6%; /* reduce top/bottom padding */
@@ -323,6 +361,7 @@ body {
     height: 160px;
   }
 }
+
 /* ================= HERO SECTION RESPONSIVE ADJUSTMENTS ================= */
 @media (max-width: 768px) {
   .hero-section {
@@ -365,11 +404,11 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Adjusted for better proportion */
   }
 
   .hero-text {
-    font-size: 1rem;
+    font-size: 1.1rem; /* Slightly larger for readability */
     line-height: 1.4;
     min-height: auto; /* Remove min-height to fit content */
   }

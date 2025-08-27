@@ -59,12 +59,14 @@
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: var(--secondary);
+  text-align: left; /* Ensure role is left-aligned */
 }
 
 .internship-company {
   font-size: 1.2rem;
   color: var(--text-light);
   margin-bottom: 15px;
+  text-align: left; /* Ensure company is left-aligned */
 }
 
 .internship-duration {
@@ -75,12 +77,16 @@
   font-size: 0.9rem;
   color: var(--text-lighter);
   margin-bottom: 20px;
+  text-align: center; /* Center text in duration badge */
 }
 
 .internship-description {
   color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 25px;
+  text-align: justify; /* Added text justification */
+  text-justify: inter-word; /* Improves word spacing in justified text */
+  hyphens: auto; /* Enables hyphenation for better text flow */
 }
 
 .tech-stack {
@@ -96,6 +102,7 @@
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
+  text-align: center; /* Center text in tech badges */
 }
 
 /* ================ RESPONSIVE DESIGN ================ */

@@ -104,12 +104,14 @@
   font-size: 1.5rem;
   color: var(--secondary);
   margin-bottom: 5px;
+  text-align: left; /* Ensures title is left-aligned */
 }
 
 .education-institution {
   font-size: 1.2rem;
   color: var(--text-light);
   margin-bottom: 15px;
+  text-align: left; /* Ensures institution is left-aligned */
 }
 
 .education-duration {
@@ -120,6 +122,7 @@
   border-radius: 20px;
   font-size: 0.9rem;
   color: var(--text-lighter);
+  text-align: center; /* Center text in duration badge */
 }
 
 .education-grade {
@@ -131,6 +134,7 @@
   background-clip: text;
   color: transparent;
   display: inline-block;
+  text-align: left; /* Ensures grade is left-aligned */
 }
 
 .education-description {
@@ -139,6 +143,9 @@
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid rgba(102, 252, 241, 0.1);
+  text-align: justify; /* Added text justification */
+  text-justify: inter-word; /* Improves word spacing in justified text */
+  hyphens: auto; /* Enables hyphenation for better text flow */
 }
 
 .achievements {
@@ -154,6 +161,7 @@
   padding: 5px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
+  text-align: center; /* Center text in achievement badges */
 }
 
 /* ================ ANIMATIONS ================ */
