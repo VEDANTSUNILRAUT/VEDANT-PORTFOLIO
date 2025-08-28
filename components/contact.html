@@ -232,10 +232,12 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--text-lighter);
+            text-align: left;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
+            text-align: left;
         }
 
         .form-group label {
@@ -243,6 +245,7 @@
             margin-bottom: 0.5rem;
             color: var(--text-light);
             font-weight: 500;
+            text-align: left;
         }
 
         .form-control {
@@ -303,6 +306,7 @@
             padding: 2rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
+            text-align: left;
         }
 
         .info-card:hover {
@@ -332,17 +336,20 @@
         .info-title {
             font-size: 1.5rem;
             color: var(--text-lighter);
+            text-align: left;
         }
 
         .info-content {
             color: var(--text-gray);
             line-height: 1.7;
             margin-bottom: 1rem;
+            text-align: left;
         }
 
         .info-list {
             list-style: none;
             margin-top: 1rem;
+            text-align: left;
         }
 
         .info-list li {
@@ -350,6 +357,20 @@
             gap: 1rem;
             margin-bottom: 1rem;
             align-items: flex-start;
+            text-align: left;
+        }
+
+        .info-list li div {
+            text-align: left;
+        }
+
+        .info-list li h4 {
+            margin-bottom: 0.3rem;
+            color: var(--text-lighter);
+        }
+
+        .info-list li p {
+            color: var(--text-gray);
         }
 
         .info-list i {
@@ -363,7 +384,7 @@
             display: flex;
             gap: 1.2rem;
             margin-top: 1.5rem;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .social-links a {
@@ -444,6 +465,49 @@
             color: #dc3545;
         }
 
+        /* Main content wrapper for proper centering */
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Logo styling with gradient text effect */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bg-dark);
+        }
+
+        .logopng {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
         /* Responsive design */
         @media (max-width: 992px) {
             .contact-container {
@@ -499,6 +563,15 @@
             .info-icon {
                 margin: 0 auto;
             }
+
+            .info-title,
+            .info-content {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -514,10 +587,17 @@
                 padding: 1.5rem;
             }
 
+            /* FIXED: Improved mobile alignment for contact info items */
             .info-list li {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
+                flex-direction: row;
+                text-align: left;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .info-list li div {
+                text-align: left;
+                flex: 1;
             }
 
             .social-links {
@@ -568,49 +648,17 @@
                 height: 40px;
                 font-size: 1.1rem;
             }
-        }
 
-        /* Main content wrapper for proper centering */
-        .main-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            flex: 1;
-        }
+            /* FIXED: Further improved alignment for very small screens */
+            .info-list li {
+                flex-direction: row;
+                text-align: left;
+                gap: 0.8rem;
+            }
 
-        /* Logo styling with gradient text effect */
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--bg-dark);
-        }
-
-        .logopng {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
+            .info-list i {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
